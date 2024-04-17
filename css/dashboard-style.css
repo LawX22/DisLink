@@ -6,8 +6,8 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    padding-top: 40px; /* Adjust top padding for header */
+    background-color: #424549;
+    margin-top: 40px; /* Adjust for the fixed header */
 }
 
 .header {
@@ -15,6 +15,10 @@ body {
     color: #fff;
     padding: 10px 20px;
     text-align: right;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 999; /* Ensure the header appears above other content */
 }
 
 .logout-btn {
@@ -32,16 +36,57 @@ body {
     background-color: #0056b3;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.main-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    position: relative; /* Set main-container as a positioning context */
+    padding-top: 40px; /* Adjust for the fixed header */
+}
+
+.workspace-column,
+.posted-column,
+.friends-column {
+    border: 1px solid whitesmoke;
+    overflow: auto; 
+    flex-shrink: 0; /* Prevent columns from shrinking */
+}
+
+.posted-column {
+    flex-grow: 1; /* Allow posted column to grow and fill remaining space */
+}
+
+.workspace-column,
+.friends-column {
+    position: fixed; /* Fix position of workspace and friends columns */
+    top: 40px; /* Adjust for the fixed header */
+    height: calc(100vh - 40px); /* Set height to fill remaining viewport */
+}
+
+.workspace-column {
+    left: 0; /* Align workspace column to the left */
+    width: 290px; /* Set width for workspace column */
+}
+
+.friends-column {
+    right: 0; /* Align friends column to the right */
+    width: 290px; /* Set width for friends column */
 }
 
 h1 {
     text-align: center;
     margin-bottom: 20px;
+    color: #fff;
+}
+
+.posted-column {
+    flex: 2; 
+}
+
+.friends-list{
+    margin-top: 8vh;
+    margin-left: 10px;
+    border: 1px solid white;
+    height: 84vh;
+    width: 42vh;
 }

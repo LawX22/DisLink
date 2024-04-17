@@ -12,7 +12,7 @@ $(document).ready(function(){
                 // Check response from server
                 if(response.trim() === "success") {
                     // Redirect to dashboard page if login successful
-                    window.location.href = "dashboard.html";
+                    window.location.href = "dashboard.php";
                 } else {
                     // Display error message if login failed
                     $('.error-msg').text(response);
