@@ -7,86 +7,314 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #424549;
-    margin-top: 40px; /* Adjust for the fixed header */
+    margin-top: 40px;
+    /* overflow: hidden; */
 }
 
+/* ----------------- Header ----------------- */
 .header {
     background-color: #333;
     color: #fff;
-    padding: 10px 20px;
     text-align: right;
     width: 100%;
+    padding: 0 20px 0 20px;
     position: fixed;
     top: 0;
-    z-index: 999; /* Ensure the header appears above other content */
+    gap: 10px;
+    z-index: 999;
+    display: flex; 
+    align-items: center;
+    justify-content: flex-start;
+}
+.header > div{
+    height: 83px;
+    /* border: 1px solid red; */
+}
+.header_Left,
+.header_Right{
+    width: 20%;
+}
+.header_Left{
+    display: flex;
+    align-items: center;
+}
+.header_Center{
+    width: 60%;
+}
+.header_Right{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+.header_Right > div{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    text-decoration: none;
+    object-fit: cover;
+}
+.header_Right > div:active{
+    scale: .887;
+}
+.header_Right > div i{
+    font-size: 23px;
+    color: #000;
+}
+.profile_container{
+    position: relative;
+}
+.profile_container img{
+    height: 100%;
+    width: 100%;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+.caret{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #e4e6eb;
+}
+.caret i{
+    font-size: 12px !important;
+    color: #000 !important;
 }
 
-.logout-btn {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 16px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.userMenu_Popup{
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 25px;
+    width: 20vw;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #ffffff;
+    z-index: 999;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
 }
-
-.logout-btn:hover {
-    background-color: #0056b3;
+.uMP{
+    width: 100%;
+    gap: 10px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+.uMP a{
+    height: 55px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-decoration: none;
+    padding: 7px 10px;
+    gap: 13px;
+    border-radius: 8px;
+}
+.uMP a:hover{
+    background-color: #f1f1f1;
+  }
+.upmcU{
+    height: 55px;
+    width: 100%;
+    padding: 7px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 8px;
+    gap: 13px;
+  }
+  .upmcU:hover{
+    background-color: #f1f1f1;
+  }
+  .upmcU_right{
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    height: 45px;
+    width:45px;
+    border-radius: 50%;
+    background-color: #e4e6eb;
+  }
+  .upmcU_right i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 22px;
+    color: #121212;
+  }
+  .upmcU_left{
+    height: 100%;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: .9375rem;
+    font-weight: 500;
+    color: #121212;
+    text-decoration: none;
+  }
 
+/* ----------------- Main Container ----------------- */
 .main-container {
     height: 100vh;
     width: 100%;
     display: flex;
-    position: relative; /* Set main-container as a positioning context */
-    padding-top: 40px; /* Adjust for the fixed header */
+    position: relative;
+    padding-top: 40px;
 }
 
+.post-box {
+    /* border: 1px solid white; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 80vh;
+    width: 45%;
+    margin: 10px auto;
+    border-radius: 10px;
+}
+
+/* ----------------- Left & Right Container ----------------- */
 .workspace-column,
 .posted-column,
 .friends-column {
-    border: 1px solid whitesmoke;
-    overflow: auto; 
-    flex-shrink: 0; /* Prevent columns from shrinking */
+    overflow: hidden; /* Hide overflow by default */
+    flex-shrink: 0;
 }
 
 .posted-column {
-    flex-grow: 1; /* Allow posted column to grow and fill remaining space */
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: calc(100vh - 40px); /* Adjusted height */
+    overflow-y: auto; /* Enable vertical scrolling only when needed */
 }
 
 .workspace-column,
 .friends-column {
-    position: fixed; /* Fix position of workspace and friends columns */
-    top: 40px; /* Adjust for the fixed header */
-    height: calc(100vh - 40px); /* Set height to fill remaining viewport */
+    background-color: #36393e;
+    position: fixed;
+    top: 40px;
+    height: calc(100vh - 40px);
 }
 
 .workspace-column {
-    left: 0; /* Align workspace column to the left */
-    width: 290px; /* Set width for workspace column */
+    margin-top: 5.7vh;
+    left: 0;
+    width: 55vh;
 }
 
 .friends-column {
-    right: 0; /* Align friends column to the right */
-    width: 290px; /* Set width for friends column */
+    margin-top: 5.7vh;
+    right: 0;
+    width: 55vh;
 }
 
 h1 {
+    margin-top: 2vh;
     text-align: center;
     margin-bottom: 20px;
     color: #fff;
 }
 
-.posted-column {
-    flex: 2; 
-}
-
-.friends-list{
-    margin-top: 8vh;
+/* ----------------- Workspace Column ----------------- */
+.posting{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 2vh;
+    margin-top: 1vh;
     margin-left: 10px;
     border: 1px solid white;
-    height: 84vh;
-    width: 42vh;
+    height: 10vh;
+    width: 52.5vh;
+    border-radius: 10px;
 }
+
+.posting-add{
+    display: flex;
+    align-items: center;
+    padding-left: 2vh;
+    /* border: 1px solid white; */
+    height: 10vh;
+    width: 100%;
+}
+
+.posting-add img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.text-box{
+    border: 1px solid white;
+    height: 7vh;
+    width: 75%;
+    margin-left: 2vh;
+    border-radius: 40px;
+}
+
+.text-box p {
+    position: relative;
+    top: 15px;
+    left: 25px;
+    color: rgb(180, 178, 178);
+}
+/* ----------------- Friends List Column ----------------- */
+.add {
+    display: flex;
+    align-items: center;
+    padding-left: 2vh;
+    margin-top: 1vh;
+    margin-left: 10px;
+    /* border: 1px solid white; */
+    height: 10vh;
+    width: 52.5vh;
+}
+
+.add img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.name p{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 2vh;
+}
+
+.online {
+    /* border: 1px solid white; */
+    display: flex;
+    align-items: center;
+    margin-left: 3.8vh;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.online-count {
+    margin-left: 1vh;
+}
+

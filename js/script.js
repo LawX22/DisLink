@@ -13,3 +13,18 @@ function adjustColumnsHeight() {
 // Call the function initially and whenever the window is resized
 adjustColumnsHeight();
 window.addEventListener('resize', adjustColumnsHeight);
+
+
+// USER PROFILE MENU
+function openProfileMenu() {
+    toggleDivVisibility("menuPopup");
+}
+
+function toggleDivVisibility(divId) {
+    var div = document.getElementById(divId);
+    if (div.style.display === "none" || div.style.display === "") {
+        div.style.display = "block";
+    } else {
+        div.style.display = "none";
+    }
+}
