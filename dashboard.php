@@ -95,9 +95,18 @@
         </div>
     </div>
     <div class="friends-column">
-        <div class="friends-list">
+        <div class="friends-header">
+            <a class = "fl-route" href="friends-list.php">
+            <div class="add-friends">
+            <i class='bx bxs-user-plus bx-tada'></i>
+            </div>
+            </a>
+            <div class="friends-title">
             <h1>Friends List</h1>
-            <div class="online">
+            </div>
+        </div>
+        <div class="friends-list">
+        <div class="online">
                 <p>Online -- </p>
                 <div class="online-count">
                     <p>3</p>
@@ -122,6 +131,8 @@
                 </div>
             </div>
         </div>
+        </div>
+
     </div>
     </div>
 

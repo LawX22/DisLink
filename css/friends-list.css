@@ -7,7 +7,6 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #424549;
-    margin-top: 40px;
     /* overflow: hidden; */
 }
 
@@ -172,115 +171,17 @@ body {
   }
 
 /* ----------------- Main Container ----------------- */
+
 .main-container {
-    height: 100vh;
-    width: 100%;
     display: flex;
-    position: relative;
-    padding-top: 40px;
+    margin-top: 13vh;
 }
 
-.post-box {
-    /* border: 1px solid white; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 80vh;
-    width: 45%;
-    margin: 10px auto;
-    border-radius: 10px;
+.left-container {
+    border: 1px solid black;
+    height: 87vh;
+    width: 30%;
 }
-
-/* ----------------- Left & Right Container ----------------- */
-.workspace-column,
-.posted-column,
-.friends-column {
-    overflow: hidden; /* Hide overflow by default */
-    flex-shrink: 0;
-}
-
-.posted-column {
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: calc(100vh - 40px); /* Adjusted height */
-    overflow-y: auto; /* Enable vertical scrolling only when needed */
-}
-
-.workspace-column,
-.friends-column {
-    background-color: #36393e;
-    position: fixed;
-    top: 40px;
-    height: calc(100vh - 40px);
-}
-
-.workspace-column {
-    margin-top: 5.7vh;
-    left: 0;
-    width: 55vh;
-}
-
-.friends-column {
-    margin-top: 5.7vh;
-    right: 0;
-    width: 55vh;
-}
-
-h1 {
-    margin-top: 2vh;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #fff;
-}
-
-/* ----------------- Workspace Column ----------------- */
-.posting{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-left: 2vh;
-    margin-top: 1vh;
-    margin-left: 10px;
-    border: 1px solid white;
-    height: 10vh;
-    width: 52.5vh;
-    border-radius: 10px;
-}
-
-.posting-add{
-    display: flex;
-    align-items: center;
-    padding-left: 2vh;
-    /* border: 1px solid white; */
-    height: 10vh;
-    width: 100%;
-}
-
-.posting-add img{
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-}
-
-.text-box{
-    border: 1px solid white;
-    height: 7vh;
-    width: 75%;
-    margin-left: 2vh;
-    border-radius: 40px;
-}
-
-.text-box p {
-    position: relative;
-    top: 15px;
-    left: 20px;
-    color: rgb(180, 178, 178);
-}
-/* ----------------- Friends List Column ----------------- */
 
 .fl-route {
     text-decoration: none;
@@ -291,59 +192,25 @@ h1 {
     margin-top: 2vh;
     margin-left: 2vh;
 }
-.add-friends {
+.back-btn {
     /* border: 1px solid black; */
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 7vh;
+    font-size: 5vh;
     color: white;
-    margin-top: 1.3vh;
+    margin-top: 2vh;
 }
 
-.friends-title {
-    /* border: 1px solid black; */
+.right-container {
+    border: 1px solid black;
+    height: 87vh;
+    width: 70%;
+}
+
+h1 {
+    margin-top: 2vh;
     text-align: center;
-}
-
-.friends-list {
-    /* border: 1px solid black; */
-}
-.add {
-    display: flex;
-    align-items: center;
-    padding-left: 2vh;
-    margin-top: 1vh;
-    margin-left: 10px;
-    /* border: 1px solid white; */
-    height: 10vh;
-    width: 52.5vh;
-}
-
-.add img {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-}
-
-.name p{
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    margin-left: 2vh;
-}
-
-.online {
-    /* border: 1px solid white; */
-    display: flex;
-    align-items: center;
-    margin-left: 3.8vh;
+    margin-bottom: 20px;
     color: #fff;
-    font-size: 20px;
-    font-weight: bold;
 }
-
-.online-count {
-    margin-left: 1vh;
-}
-
