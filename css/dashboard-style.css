@@ -382,9 +382,9 @@ button {
     text-align: center;
 }
 
-.friends-list {
-    /* border: 1px solid black; */
-}
+/* .friends-list {
+    border: 1px solid black;
+} */
 .add {
     display: flex;
     align-items: center;
