@@ -69,11 +69,23 @@
         <div class="posting">
         <div class="posting-add">
                 <img src="Assets/YENZ.png" alt="">
-                <div class="text-box">
-                    <p>Pag post DIHA!</p>
+                <div class="post-fnt">
+                    <button>CREATE POST</button>
                 </div>
             </div>
         </div>
+        <div class="channel">
+        <div class="text-channel">
+            <div class="left"> <i class="fa-solid fa-angle-down"></i> </div>
+            <div class="middle"> <p>TEXT CHANNELS</p> </div>
+            <div class="right"> <i class='bx bx-plus'></i> </div>
+            <div class="dropdown-content">
+                <a> <i class='bx bx-hash' style = "font-size: 4vh;"></i> General</a>
+                <a> <i class='bx bx-hash' style = "font-size: 4vh;"></i> Dropdown Item 2</a>
+                <a> <i class='bx bx-hash' style = "font-size: 4vh;"></i> Dropdown Item 3</a>
+            </div>
+        </div>
+    </div>
     </div>
     <div class="posted-column">
         <h1>Posted Content</h1>

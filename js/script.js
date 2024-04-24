@@ -28,3 +28,11 @@ function toggleDivVisibility(divId) {
         div.style.display = "none";
     }
 }
+
+
+// TEXT CHANNEL
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelector(".text-channel").addEventListener("click", function() {
+        this.querySelector(".dropdown-content").style.display = this.querySelector(".dropdown-content").style.display === "block" ? "none" : "block";
+    });
+});
