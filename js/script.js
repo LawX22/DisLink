@@ -36,3 +36,40 @@ document.addEventListener("DOMContentLoaded", function() {
         this.querySelector(".dropdown-content").style.display = this.querySelector(".dropdown-content").style.display === "block" ? "none" : "block";
     });
 });
+
+// Function to display the popup
+function displayPopup() {
+    var popup = document.getElementById("postpopup");
+    var overlay = document.getElementById("overlay");
+    popup.style.display = "block";
+    overlay.style.display = "block";
+    // Add event listener to close popup when clicked outside
+    document.addEventListener("click", closePopupOutside);
+}
+
+// Function to close the popup
+function closePopup() {
+    var popup = document.getElementById("postpopup");
+    var overlay = document.getElementById("overlay");
+    popup.style.display = "none";
+    overlay.style.display = "none";
+    // Remove event listener
+    document.removeEventListener("click", closePopupOutside);
+}
+
+// Function to close the popup when clicked outside
+function closePopupOutside(event) {
+    var popup = document.getElementById("postpopup");
+    var overlay = document.getElementById("overlay");
+    var createPostBtn = document.getElementById("create-post-btn");
+    // Check if click target is outside the popup and the button
+    if (!popup.contains(event.target) && event.target !== createPostBtn) {
+        popup.style.display = "none";
+        overlay.style.display = "none";
+        // Remove event listener
+        document.removeEventListener("click", closePopupOutside);
+    }
+}
+
+// Adding click event listener to the button
+document.getElementById("create-post-btn").addEventListener("click", displayPopup);
