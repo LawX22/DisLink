@@ -1,47 +1,33 @@
 <?php
-// Include database connection
+session_start();
 include 'dbconnection.php';
 
-// Get email and password from AJAX request
-$email = $_POST['email'];
-$password = $_POST['password'];
+// Check if email and password are set in the POST request
+if (isset($_POST['email']) && isset($_POST['password'])) {
+    // Sanitize and assign email and password
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-// Perform validation and authentication
-$errors = [];
+    // Prepare and execute SQL query to check user credentials
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
+    $stmt->execute([$email]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Check if email and password are provided
-if (empty($email) || empty($password)) {
-    $errors[] = "Email and password are required";
-} else {
-    // Sanitize inputs to prevent SQL injection
-    $email = $mysqli->real_escape_string($email);
-    $password = $mysqli->real_escape_string($password);
-    
-    // Query to retrieve user with the provided email
-    $query = "SELECT * FROM users WHERE email = '$email'";
-    $result = $mysqli->query($query);
-    
-    if ($result && $result->num_rows == 1) {
-        // User found, verify password
-        $user = $result->fetch_assoc();
-        if (password_verify($password, $user['password'])) {
-            // Password is correct, login successful
-            echo "success";
-        } else {
-            // Password is incorrect
-            $errors[] = "Invalid email or password";
-        }
+    // Check if user exists and verify password
+    if ($user && password_verify($password, $user['password'])) {
+        // Set session variables
+        $_SESSION['email'] = $user['email'];
+        // Return a success response
+        echo "success";
+        exit();
     } else {
-        // User not found with the provided email
-        $errors[] = "Invalid email or password";
+        // Return an error message
+        echo "Invalid credentials";
+        exit();
     }
+} else {
+    // Return an error message if email and password are not set
+    echo "Email and password are required";
+    exit();
 }
-
-// If there are errors, send them to AJAX
-if (!empty($errors)) {
-    echo implode(" ", $errors);
-}
-
-// Close connection
-$mysqli->close();
 ?>

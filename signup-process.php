@@ -31,12 +31,21 @@ if (empty($errors)) {
     // Hash the password
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    // Sample query to insert user data into the database
-    $query = "INSERT INTO users (firstname, lastname, gender, email, password) VALUES ('$firstname', '$lastname', '$gender', '$email', '$hashed_password')";
-    if ($mysqli->query($query) === TRUE) {
+    // Prepare statement to insert user data into the database
+    $stmt = $pdo->prepare("INSERT INTO users (firstname, lastname, gender, email, password) VALUES (?, ?, ?, ?, ?)");
+
+    // Bind parameters
+    $stmt->bindParam(1, $firstname);
+    $stmt->bindParam(2, $lastname);
+    $stmt->bindParam(3, $gender);
+    $stmt->bindParam(4, $email);
+    $stmt->bindParam(5, $hashed_password);
+
+    // Execute the statement
+    if ($stmt->execute()) {
         echo "success"; // Send success response to AJAX
     } else {
-        echo "Error: " . $query . "<br>" . $mysqli->error;
+        echo "Error: Unable to execute the query.";
     }
 } else {
     // Send error messages to AJAX
@@ -44,5 +53,5 @@ if (empty($errors)) {
 }
 
 // Close connection (optional, as PHP automatically closes it at the end of script execution)
-$mysqli->close();
+$pdo = null;
 ?>

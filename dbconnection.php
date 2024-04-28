@@ -1,15 +1,14 @@
 <?php
-// Database connection parameters
-$host = 'localhost';
-$user = 'root';
-$password = '';
-$database = 'dislink-db';
+$host = "localhost";
+$dbname = "dislink-db";
+$username = "root";
+$password = "";
 
-// Create connection
-$mysqli = new mysqli($host, $user, $password, $database);
+try {
+    $dsn = "mysql:host=$host;dbname=$dbname";
+    $pdo = new PDO($dsn, $username, $password);
 
-// Check connection
-if ($mysqli->connect_error) {
-    die("Connection failed: " . $mysqli->connect_error);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
 }
-?>

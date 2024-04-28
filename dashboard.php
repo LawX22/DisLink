@@ -121,7 +121,8 @@
     </div>
     </div>
     <div class="posted-column">
-        <div class="post-box">
+        <!-- <div class="post-box"></div> -->
+        <!-- <div class="post-box">
         <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid02EHc4KKF4hYGrxo1FoLiktALmH6en9QWRurujN2vVAcQYsBdssWyaBURBnZotztBol%26id%3D100089235922079&show_text=true&width=500&is_preview=true" width="500" height="588" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
         </div>
         <div class="post-box">
@@ -132,7 +133,7 @@
         </div>
         <div class="post-box">
         <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fstevesecondary.jolliffe%2Fposts%2Fpfbid0Gq9bxLnkMuwccjyFJum4ysExhShiFHXp9pzEnZ867X3dxzppJn632HPeQ6PM5apAl&show_text=true&width=500&is_preview=true" width="500" height="589" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-        </div>
+        </div> -->
     </div>
     <div class="friends-column">
         <div class="friends-header">
@@ -145,34 +146,13 @@
             <h1>Friends List</h1>
             </div>
         </div>
-        <div class="friends-list">
-        <div class="online">
-                <p>Online -- </p>
-                <div class="online-count">
-                    <p>3</p>
-                </div>
+        <div class="friend-count-container">
+                You are following <span class="friend-count">0</span> friends
             </div>
-            <div class="add">
-                <img src="Assets/YENZ.png" alt="">
-                <div class="name">
-                    <p>Lawrenz Xavier Carisusa</p>
-                </div>
+            <div class="display-friends">
+                
+                <!-- Friends list will be displayed here -->
             </div>
-            <div class="add">
-                <img src="Assets/YENZ.png" alt="">
-                <div class="name">
-                    <p>Xavier Carisusa</p>
-                </div>
-            </div>
-            <div class="add">
-                <img src="Assets/YENZ.png" alt="">
-                <div class="name">
-                    <p>Yenz</p>
-                </div>
-            </div>
-        </div>
-        </div>
-
     </div>
     </div>
 

@@ -598,9 +598,40 @@ button {
     text-align: center;
 }
 
-/* .friends-list {
-    border: 1px solid black;
-} */
+/* Friend Display */
+.friend-profile {
+    /* border: 1px solid red; */
+    width: 90%;
+    position: relative;
+    top: 5vh;
+    left: 2vh;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    color: white;
+    overflow: hidden;
+}
+
+.friend-profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Make the image round */
+    margin-right: 10px;
+}
+
+.friend-name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.friend-count-container{
+    position: relative;
+    top: 1.9vh;
+    left: 2vh;
+    font-size: 20px;
+    color: white;
+}
+
 .add {
     display: flex;
     align-items: center;
