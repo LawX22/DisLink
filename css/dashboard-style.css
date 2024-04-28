@@ -196,13 +196,13 @@ body {
     margin-top: 5.7vh;
     left: 0;
     width: 55vh;
+    z-index: 1;
 }
 
 .friends-column {
     margin-top: 5.7vh;
     right: 0;
     width: 55vh;
-    z-index: -1;
 }
 
 h1 {
