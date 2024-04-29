@@ -73,3 +73,30 @@ function closePopupOutside(event) {
 
 // Adding click event listener to the button
 document.getElementById("create-post-btn").addEventListener("click", displayPopup);
+
+
+// Function to display the changeprofilepopup
+function changeProfilePopup() {
+    var popup = document.getElementById("changeprofilepopup");
+    popup.style.display = "block";
+
+    // Add event listener to close popup when clicking outside of it
+    window.addEventListener("click", function(event) {
+        var closeButton = document.getElementById("closeButton");
+        if (event.target === closeButton) {
+            popup.style.display = "none";
+        }
+    });
+}
+
+// Function to close the popup
+function closePopup() {
+    var popup = document.getElementById("changeprofilepopup");
+    popup.style.display = "none";
+}
+
+function openChangeProfilePopup() {
+    var popup = document.getElementById("changeprofilepopup");
+    popup.style.display = "block";
+}
+

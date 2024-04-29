@@ -694,3 +694,46 @@ button {
     margin-left: 1vh;
 }
 
+/* ----------------- change profile ----------------- */
+.changeprofilepopup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    color: black;
+    height: 50%;
+    width: 30%;
+}
+
+.change img {
+    height: 10vh;
+    width: 10vh;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.changeprofilepopup .change {
+    display: flex;
+    align-items: center;
+}
+
+.changeprofilepopup .profile-info {
+    margin-left: 20px;
+}
+
+.changeprofilepopup .profile-info label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.btn-updateprofile{
+    margin-top: 20vh;
+}

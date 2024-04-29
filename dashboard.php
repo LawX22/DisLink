@@ -94,10 +94,28 @@ if (!isset($_SESSION['email'])) {
                         <div class="uMP">
                             <div class="upmcU _changeprofile">
                                 <div class="upmcU_right">
-                                    <i class='bx bxs-user-circle' ></i>
+                                        <i class='bx bxs-user-circle'></i>
+                                    </div>
+                                    <div class="upmcU_left" onclick="changeProfilePopup()">Change Profile</div>
                                 </div>
-                                <div class="upmcU_left">Change Profile</div>
-                            </div>
+
+                               <!-- Change Profile Popup -->
+                                <div id="changeprofilepopup" class="changeprofilepopup">
+                                    <!-- Content of the popup goes here -->
+                                    <h3>User Profile</h3>
+                                    <div class="change">
+                                        <img src="<?php echo $_SESSION['profile_picture']; ?>" alt="Profile Picture">
+                                        <div class="profile-info">
+                                            <label for="firstname">First Name:</label>
+                                            <input type="text" id="firstname" name="firstname" value="<?php echo $_SESSION['firstname']; ?>">
+                                            <label for="lastname">Last Name:</label>
+                                            <input type="text" id="lastname" name="lastname" value="<?php echo $_SESSION['lastname']; ?>">
+                                        </div>
+                                    </div>
+                                    <button class="btn-updateprofile" id="updateButton" onclick="updateProfile()">Update</button>
+                                    <span class="close-icon" onclick="closePopup()">&#10006;</span>
+                                </div>
+
                             <div class="upmcU _settings">
                                 <div class="upmcU_right">
                                     <i class="fa-solid fa-gear"></i>
