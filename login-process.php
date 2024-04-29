@@ -1,5 +1,6 @@
 <?php
-session_start();
+session_start(); // Start the session
+
 include 'dbconnection.php';
 
 // Check if email and password are set in the POST request
@@ -16,7 +17,10 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     // Check if user exists and verify password
     if ($user && password_verify($password, $user['password'])) {
         // Set session variables
-        $_SESSION['email'] = $user['email'];
+        $_SESSION['email'] = $user['email']; // Set email in session
+        $_SESSION['firstname'] = $user['firstname']; // Set first name in session
+        $_SESSION['lastname'] = $user['lastname']; // Set last name in session
+        $_SESSION['profile_picture'] = $user['profile_picture']; // Set profile image URL in session
         // Return a success response
         echo "success";
         exit();
