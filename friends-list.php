@@ -47,7 +47,6 @@
                 You are following <span class="friend-count">0</span> friends
             </div>
             <div class="display-friends">
-                
                 <!-- Friends list will be displayed here -->
             </div>
             <div class="bottom-channel">

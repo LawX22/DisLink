@@ -132,6 +132,7 @@ $(document).on('click', '.followBtn', function() {
         success: function(response) {
             if (response.status === 'success') {
                 alert(response.message);
+                window.location.reload()
                 fetchAccounts();
             } else {
                 alert(response.message);

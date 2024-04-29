@@ -144,8 +144,10 @@ body {
 }
 
 .display-friends {
-    flex: 1; 
+    /* flex: 1;  */
+    margin-top: 2vh;
     overflow-y: auto; 
+    height: 69vh;
     /* border: 1px solid red; */
 }
 
@@ -377,6 +379,27 @@ h1{
     color: white;
 }
 
+/* .display-friends{
+    border: 1px solid red;
+} */
+
+.display-friends::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  .display-friends::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+  }
+  
+  .display-friends::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+  }
+  
+  .display-friends::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+  }
 /* ----------------- Right Container ----------------- */
 .right-container {
     /* border: 1px solid black; */
@@ -417,9 +440,8 @@ h1{
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 5px;
+    align-content: flex-start;
+    gap: 10px;
 }
 
 .flcr_container::-webkit-scrollbar {

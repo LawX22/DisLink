@@ -77,17 +77,17 @@
                 </div>
                 <section class="userMenu_Popup" id="menuPopup">
                     <div class="uMP">
+                        <div class="upmcU _changeprofile">
+                            <div class="upmcU_right">
+                                <i class='bx bxs-user-circle' ></i>
+                            </div>
+                            <div class="upmcU_left">Change Profile</div>
+                        </div>
                         <div class="upmcU _settings">
                             <div class="upmcU_right">
                                 <i class="fa-solid fa-gear"></i>
                             </div>
                             <div class="upmcU_left">Settings & privacy</div>
-                        </div>
-                        <div class="upmcU _helpSupport">
-                            <div class="upmcU_right">
-                                <i class='bx bxs-help-circle'></i>
-                            </div>
-                            <div class="upmcU_left">Help & support</div>
                         </div>
                         <div class="upmcU _giveFeedback">
                             <div class="upmcU_right">
@@ -121,7 +121,7 @@
     </div>
     </div>
     <div class="posted-column">
-        <!-- <div class="post-box"></div> -->
+        <div class="post-box"></div>
         <!-- <div class="post-box">
         <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid02EHc4KKF4hYGrxo1FoLiktALmH6en9QWRurujN2vVAcQYsBdssWyaBURBnZotztBol%26id%3D100089235922079&show_text=true&width=500&is_preview=true" width="500" height="588" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
         </div>

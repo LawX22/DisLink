@@ -626,12 +626,36 @@ button {
 
 .friend-count-container{
     position: relative;
-    top: 1.9vh;
+    top: 1vh;
     left: 2vh;
     font-size: 20px;
     color: white;
 }
 
+.display-friends{
+    margin-top: 0.8vh;
+    /* border: 1px solid red; */
+    overflow-y: auto;
+    height: 69.3vh;
+}
+
+.display-friends::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  .display-friends::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+  }
+  
+  .display-friends::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+  }
+  
+  .display-friends::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+  }
 .add {
     display: flex;
     align-items: center;
