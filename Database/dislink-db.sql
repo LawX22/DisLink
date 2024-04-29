@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2024 at 04:38 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- Generation Time: Apr 29, 2024 at 05:09 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -47,7 +47,21 @@ INSERT INTO `follow` (`id`, `user_id`, `friend_id`, `created_at`) VALUES
 (6, 55, 74, '2024-04-28 22:18:01'),
 (7, 55, 65, '2024-04-28 22:18:03'),
 (8, 55, 60, '2024-04-28 22:18:07'),
-(9, 55, 66, '2024-04-28 22:24:33');
+(9, 55, 66, '2024-04-28 22:24:33'),
+(10, 80, 55, '2024-04-29 09:39:55'),
+(11, 80, 64, '2024-04-29 09:40:07'),
+(12, 80, 65, '2024-04-29 09:40:12'),
+(13, 80, 77, '2024-04-29 09:41:40'),
+(14, 80, 79, '2024-04-29 09:41:46'),
+(15, 80, 63, '2024-04-29 09:41:50'),
+(16, 80, 74, '2024-04-29 09:41:53'),
+(17, 80, 76, '2024-04-29 09:41:59'),
+(18, 81, 79, '2024-04-29 09:44:33'),
+(19, 81, 78, '2024-04-29 09:44:35'),
+(20, 80, 81, '2024-04-29 09:51:46'),
+(21, 80, 61, '2024-04-29 09:57:53'),
+(22, 80, 75, '2024-04-29 10:07:47'),
+(23, 80, 78, '2024-04-29 10:34:10');
 
 -- --------------------------------------------------------
 
@@ -83,7 +97,10 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `profile_picture`, 
 (76, 'Jade', 'Caseda', 'jade@gmail.com', './Assets/default-profilepicture.png\r\n', '$2y$10$PF3WavopRmbgpEBsNhLJSO9ilXer6EU7mCdHZVhUTIJD6UE.U6ZfO', 'Male', '0000-00-00 00:00:00'),
 (77, 'Ricky', 'Monsales', 'Ricky@gmail.com', './Assets/default-profilepicture.png\r\n', '$2y$10$aqqzqjaviChh2B7YCDmIY.mFfOtzsn2yhN7LPihBEIz0yKdiDt4NG', 'Male', '0000-00-00 00:00:00'),
 (78, 'Franz', 'Dison', 'Franz@gmail.com', './Assets/default-profilepicture.png\r\n', '$2y$10$di3OeQfaHjGYWVVWNjNm4eDlTZD1ULoCh7IO03kQfZkkec2PBKimu', 'Male', '0000-00-00 00:00:00'),
-(79, 'Karl', 'Pino', 'karl@gmail.com', './Assets/default-profilepicture.png\r\n', '$2y$10$rxNmBXhH88hIfYILkoNj6uMeLqUT71XRs5d/nD3Qw.zeBjW173wD.', 'Male', '0000-00-00 00:00:00');
+(79, 'Karl', 'Pino', 'karl@gmail.com', './Assets/default-profilepicture.png\r\n', '$2y$10$rxNmBXhH88hIfYILkoNj6uMeLqUT71XRs5d/nD3Qw.zeBjW173wD.', 'Male', '0000-00-00 00:00:00'),
+(80, 'Kreemo', 'Alien', 'kreemo@gmail.com', './Assets/default-profilepicture.png', '$2y$10$JyhtwBdJ2s0S3HMeM6E1A.JuQbmXU1U4v8kM0UICHt1HehAFTEx1m', 'Male', '0000-00-00 00:00:00'),
+(81, 'Shienamae', 'Migabon', 'shienamae@gmail.com', './Assets/default-profilepicture.png', '$2y$10$K7gP7FCXIWizEKEc89y1V.4nIs65fkK1ysSJBpFi3lz8S.lB9csqW', 'Female', '0000-00-00 00:00:00'),
+(82, ' <b>Franz</b>', '\"><script>alert(1)</script>', 'test@gmail.com', './Assets/default-profilepicture.png', '$2y$10$g2jwNvuV9cS27oEem/SLEufipr7m/ib7hkxJpSffKCIk6IHbg/w2i', 'Male', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -109,13 +126,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `follow`
 --
 ALTER TABLE `follow`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
