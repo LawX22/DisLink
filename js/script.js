@@ -88,25 +88,25 @@ function autoExpand(textarea) {
 // Function to display the changeprofilepopup
 function changeProfilePopup() {
     var popup = document.getElementById("changeprofilepopup");
+    var overlay = document.getElementById("overlay");
     popup.style.display = "block";
-
-    // Add event listener to close popup when clicking outside of it
-    window.addEventListener("click", function(event) {
-        var closeButton = document.getElementById("closeButton");
-        if (event.target === closeButton) {
-            popup.style.display = "none";
-        }
-    });
+    overlay.style.display = "block";
 }
 
 // Function to close the popup
 function closePopup() {
     var popup = document.getElementById("changeprofilepopup");
+    var overlay = document.getElementById("overlay");
     popup.style.display = "none";
+    overlay.style.display = "none";
 }
 
 function openChangeProfilePopup() {
     var popup = document.getElementById("changeprofilepopup");
+    var overlay = document.getElementById("overlay");
     popup.style.display = "block";
+    overlay.style.display = "block";
 }
+
+
 

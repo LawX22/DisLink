@@ -117,18 +117,29 @@ if (!isset($_SESSION['email'])) {
                                     <!-- Content of the popup goes here -->
                                     <h3>User Profile</h3>
                                     <div class="change">
-                                        <img src="<?php echo $_SESSION['profile_picture']; ?>" alt="Profile Picture">
-                                        <div class="profile-info">
-                                            <label for="firstname">First Name:</label>
-                                            <input type="text" id="firstname" name="firstname" value="<?php echo $_SESSION['firstname']; ?>">
-                                            <label for="lastname">Last Name:</label>
-                                            <input type="text" id="lastname" name="lastname" value="<?php echo $_SESSION['lastname']; ?>">
+                                        <div class="change-left">
+                                        <div class="change-profile">
+                                                <img src="<?php echo $_SESSION['profile_picture']; ?>" alt="Profile Picture">
+                                            </div>
+                                            <div class="upload-img1">
+                                                    <label for="postImage" class="upload-label">
+                                                        <span>Change Profile</span>
+                                                        <input type="file" id="postImage" name="postImage" accept="image/*" style="display: none;">
+                                                    </label>
+                                            </div>
                                         </div>
-                                    </div>
+                                        <div class="change-right">
+                                            <div class="profile-info">
+                                                        <label for="firstname">First Name:</label>
+                                                        <input type="text" id="firstname" name="firstname" value="<?php echo $_SESSION['firstname']; ?>">
+                                                        <label for="lastname">Last Name:</label>
+                                                        <input type="text" id="lastname" name="lastname" value="<?php echo $_SESSION['lastname']; ?>">
+                                                </div>
+                                            </div>
+                                        </div>
                                     <button class="btn-updateprofile" id="updateButton" onclick="updateProfile()">Update</button>
                                     <span class="close-icon" onclick="closePopup()">&#10006;</span>
                                 </div>
-
                             <div class="upmcU _settings">
                                 <div class="upmcU_right">
                                     <i class="fa-solid fa-gear"></i>

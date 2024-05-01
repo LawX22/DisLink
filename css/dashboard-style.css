@@ -431,7 +431,7 @@ button {
     padding: 10px;
     border-radius: 6px;
     background-color: #424549;
-    z-index: 999;
+    z-index: 1;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 .uMP{
@@ -507,7 +507,7 @@ button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #fff;
+    background-color: #3a3b3c;
     border-radius: 10px;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
     padding: 20px;
@@ -525,12 +525,18 @@ button {
     height: 30px;
     font-size: 2.5vh;
     width: 70%;
-    border-bottom: 1px solid black;
+    color: white;
+    border-bottom: 1px solid white;
     position: relative;
     top: -8vh;
     left: 11vh;
 
 }
+
+.popup-textarea::placeholder {
+    color: white; 
+}
+
 
 .upload-label {
     display: inline-block;
@@ -560,7 +566,7 @@ button {
 }
 
 .close-icon:hover {
-    color: #555;
+    color: white;
 }
 
 .popup-content {
@@ -577,6 +583,11 @@ button {
     position: relative;
     bottom: 2vh;
     font-size: 20px;
+}
+
+textarea{
+    background-color: #3a3b3c;
+    color: white;
 }
 
 .popup-btns {
@@ -607,7 +618,7 @@ button {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha value to change the opacity */
-    z-index: 9998;
+    z-index: 1;
 }
 
 /* ----------------- Friends List Column ----------------- */
@@ -733,45 +744,135 @@ button {
 }
 
 /* ----------------- change profile ----------------- */
+/* Styles for the Change Profile Popup */
 .changeprofilepopup {
     display: none;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: white;
+    background-color: #333;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    z-index: 9999;
-    color: black;
-    height: 50%;
-    width: 30%;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+h3{
+    position: relative;
+    bottom: 10px;
 }
 
-.change img {
-    height: 10vh;
-    width: 10vh;
-    border: 2px solid #fff;
+.change-profile img{
+    height: 20vh;
+    width: 20vh;
     border-radius: 50%;
-    cursor: pointer;
+    position: relative;
+    bottom: -2vh;
+    left: 4.5vh;
 }
 
-.changeprofilepopup .change {
+.change {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2vh;
+    background-color: #555;
+    border-radius: 5px;
+}
+
+.change-left {
+    height: 30vh;
+    width: 30vh;
+    flex-shrink: 0;
+    background-color: #424549;
+    border-radius: 5px;
+    border-right: 7px solid #36393e;
+    border-radius: 7px;
+}
+
+.change-right {
+    height: 30vh;
+    width: 50vh; 
+    flex-shrink: 0;
+}
+
+
+.upload-img1{
+    position: relative;
+    top: 3vh;
+    left: 5vh;
+}
+
+.popup-content {
+    position: relative;
+}
+
+.popup-content h3 {
+    margin-top: 0;
+}
+
+.popup-content .change {
     display: flex;
     align-items: center;
 }
 
-.changeprofilepopup .profile-info {
-    margin-left: 20px;
+.popup-content .upload-img1 {
+    position: relative;
+    overflow: hidden;
 }
 
-.changeprofilepopup .profile-info label {
+.popup-content .upload-img1 input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+.profile-info{
+    color: white;
+    /* border: 1px solid red; */
+    width: 45vh;
+    margin-left: 2vh;
+    margin-top: 2vh;
+}
+
+.popup-content .profile-info {
+    margin-top: 20px;
+}
+
+.popup-content .profile-info label {
     display: block;
     margin-bottom: 5px;
 }
 
-.btn-updateprofile{
-    margin-top: 20vh;
+.profile-info input[type="text"] {
+    width: 65%; /* Adjust width as needed */
+    height: 40px; /* Adjust height as needed */
+    padding: 8px;
+    border: 1px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
 }
+
+
+.popup-content .btn-updateprofile {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.popup-content .btn-updateprofile:hover {
+    background-color: #0056b3;
+}
+
+.close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
