@@ -168,7 +168,52 @@ $(document).ready(function(){
                 friends.forEach(function(friend) {
                     var profilePicture = friend.profile_picture ? friend.profile_picture : 'default-profile-picture.png'; // Default profile picture if not available
                     var fullName = friend.firstname + ' ' + friend.lastname;
-                    $('.display-friends').append('<div class="friend-profile"><img src="' + profilePicture + '" alt="' + fullName + '"><div class="friend-name">' + fullName + '</div></div>');
+
+                    // Create friend profile HTML
+                    var friendProfile = $('<div>').addClass('friend-profile');
+                    var profileImg = $('<img>').attr('src', profilePicture).attr('alt', fullName);
+                    var friendName = $('<div>').addClass('friend-name').text(fullName);
+
+                    // Create unfollow icon
+                    var unfollowIcon = $('<i>').addClass('fas fa-user-minus unfollow-icon').attr('data-friend-id', friend.friend_id); // Updated to friend.friend_id
+
+                    // Append elements to friend profile
+                    friendProfile.append(profileImg, friendName, unfollowIcon);
+
+                    // Append friend profile to display
+                    $('.display-friends').append(friendProfile);
+                });
+
+                // Handle click event on unfollow icons
+                $('.unfollow-icon').on('click', function() {
+                    var friendId = $(this).data('friend-id');
+                    console.log('Friend ID:', friendId); // Debug statement
+                    if (!friendId) {
+                        console.error('Friend ID not found');
+                        return;
+                    }
+                    if (confirm('Are you sure you want to unfollow this friend?')) {
+                        $.ajax({
+                            type: 'POST',
+                            url: 'unfollow.php',
+                            dataType: 'json',
+                            data: { friendId: friendId },
+                            success: function(response) {
+                                console.log('Response:', response); // Debug statement
+                                if (response.status === 'success') {
+                                    // Optionally update the UI or display a success message
+                                    console.log('Friend unfollowed successfully.');
+                                    // Reload friends list after unfollowing
+                                    fetchFriends();
+                                } else {
+                                    console.error('Failed to unfollow friend:', response.message);
+                                }
+                            },
+                            error: function(xhr, status, error) {
+                                console.error('An error occurred while unfollowing friend:', error);
+                            }
+                        });
+                    }
                 });
             },
             error: function(xhr, status, error) {
@@ -181,5 +226,9 @@ $(document).ready(function(){
     // Call fetchFriends function when the page loads
     fetchFriends();
 });
+
+
+
+
 
 

@@ -1,3 +1,14 @@
+<?php
+session_start(); // Start the session
+
+// Check if the user is logged in
+if (!isset($_SESSION['email'])) {
+    // Redirect the user to the login page if not logged in
+    header("Location: login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,8 +62,10 @@
             </div>
             <div class="bottom-channel">
                 <div class="profile">
-                    <div class="profile_container" onclick="openProfileMenu()">
-                            <img src="Assets/YENZ.png" alt="Profile">
+                <div class="profile_container" onclick="openProfileMenu()">
+                        <?php if(isset($_SESSION['profile_picture'])): ?>
+                            <img src="<?php echo $_SESSION['profile_picture']; ?>" alt="Profile">
+                        <?php endif; ?>
                             <div class="caret">
                                 <i class="fa-solid fa-angle-down"></i>
                             </div>
@@ -87,8 +100,8 @@
                 </section>
                 </div>
                 <div class="user-name">
-                    <p>Lawrenz Xavier Carisusa</p>
-            </div>
+                    <p><?php echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?></p>
+                </div>
 
             <div class="functions">
                 <div>

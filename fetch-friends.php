@@ -4,7 +4,7 @@ include 'dbconnection.php';
 
 // Check if user is logged in
 if (!isset($_SESSION['email'])) {
-    echo json_encode([]);
+    echo json_encode(['status' => 'error', 'message' => 'User not logged in']);
     exit();
 }
 
@@ -19,10 +19,11 @@ $friends = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $numFriends = count($friends);
 
 // Encode the list of friends along with the count
-$response = array(
-    'friends' => $friends,
-    'numFriends' => $numFriends
-);
+$response = [
+    'status' => 'success',
+    'numFriends' => $numFriends,
+    'friends' => $friends
+];
 
 // Echo the JSON response
 echo json_encode($response);

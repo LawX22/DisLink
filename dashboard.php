@@ -59,14 +59,27 @@ if (!isset($_SESSION['email'])) {
         <!-- Popup content -->
         <div class="popup" id="postpopup">
             <span class="close-icon" onclick="closePopup()">&#10006;</span>
+            <div class="post-profile">
+                <?php if(isset($_SESSION['profile_picture'])): ?>
+                    <img src="<?php echo $_SESSION['profile_picture']; ?>" alt="Profile">
+                <?php endif; ?>
+            </div>
+            <div class="post-username">
+                <p><?php echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?></p>
+            </div>
             <div class="popup-content">
-                <textarea class="popup-textarea" placeholder="What's on your mind?"></textarea>
+                    <textarea class="popup-textarea" placeholder="What's on your mind? <?php echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?>" oninput="autoExpand(this)"></textarea>
+                <div class="upload-img">
+                    <label for="postImage" class="upload-label">
+                        <span>Upload Image</span>
+                        <input type="file" id="postImage" name="postImage" accept="image/*" style="display: none;">
+                    </label>
+                </div>
                 <div class="popup-btns">
                     <button class="popup-btn">Post</button>
                 </div>
             </div>
         </div>
-
         <!-- Overlay -->
         <div class="overlay" id="overlay"></div>
         <div class="channel">
