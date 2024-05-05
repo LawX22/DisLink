@@ -182,22 +182,39 @@ if (!isset($_SESSION['email'])) {
         </div>
     </div>
     <div class="posted-column">
-        <div class="post-box"></div>
+        <div class="post-box">
         <!-- Add your post boxes or content here -->
         <div id="ContentGet">
             
         <!-- POST DIPLAY -->
-            <div v-for="post in contents" :key="post.id">
-                <div>
-                    <button>Edit</button>
-                    <button @click="DeletePost(post.id)">Delete</button>
+        <div class="posted">
+                <div v-for="post in contents" :key="post.id" class="post-container">
+                    <div class="post">
+                        <div class="post-header">
+                            <div class="post-user-profile">
+                            <?php if(isset($_SESSION['profile_picture'])): ?>
+                                <img src="<?php echo $_SESSION['profile_picture']; ?>" alt="Profile">
+                            <?php endif; ?>
+                            </div>
+                            <div class="post-user-name">
+                                <p><?php echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?></p>
+                                <label>{{ post.created_at}}</label>
+                            </div>
+                        </div>
+                        <div class="btn-cta-post">
+                            <button>Edit</button>
+                            <button @click="DeletePost(post.id)">Delete</button>
+                        </div>
+                        <div class="caption">
+                            <label>{{ post.content }}</label>
+                        </div>
+                        <div class="post-img">
+                            <img :src="post.image" alt="" width="575" height="400">
+                        </div>
+                    </div>
                 </div>
-                <label>{{ post.content }}</label>
-                <label>{{ post.created_at}}</label>
-                <img :src="post.image" alt="" width="600" height="400">
             </div>
         </div>
-
         <!-- POST DISPLAY END -->
     </div>
     <div class="friends-column">

@@ -144,27 +144,103 @@ body {
 
 .posted-column {
     display: flex;
-    margin-left: 50vh;
-    margin-top: 1vh;
+    margin-left: 55vh;
+    margin-top: 0.5vh;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    width: 50%;
-    height: 93%;
+    width: 47.7%;
+    height: 88.3vh;
     overflow-y: auto;
+    /* border: 1px solid red; */
 }
 
 .post-box {
     /* border: 1px solid white; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    align-content: flex-start;
+    gap: 10px;
     text-align: center;
-    height: 80vh;
-    width: 45%;
-    margin-top: 5vh;
+    height: 70vh;
+    width: 90%;
+    margin-top: 2.5vh;
     border-radius: 10px;
 }
+
+.posted {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-container {
+    margin-bottom: 20px;
+}
+
+.post {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 10px;
+    width: 600px; 
+}
+
+label {
+    color: white;
+}
+
+.post-img {
+    width: 100%;
+}
+
+.post-header {
+    width: 50vh;
+    gap: 10px;
+    padding-right: 8vh;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.post-user-profile img{
+    height: 60px;
+    width: 60px;
+    /* border: 1px solid red; */
+    border-radius: 50%;
+}
+
+.post-user-name p, label{
+    display: flex;
+    width: 30vh;
+    margin-top: 5px;
+    /* border: 1px solid red; */
+    color: white;
+}
+/* 
+.post-user-name {
+    border: 1px solid red;
+} */
+
+.caption {
+    margin-bottom: 10px;
+}
+
+.caption label{
+    width: 100%;
+    /* border: 1px solid red; */
+}
+
+.btn-cta-post {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin-left: 20vh;
+    margin-bottom: 10px; 
+}
+
+.btn-cta-post button {
+    margin-right: 10px; 
+}
+
 
 .posted-column::-webkit-scrollbar {
     width: 12px;

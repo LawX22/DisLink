@@ -118,7 +118,6 @@ if (!isset($_SESSION['email'])) {
             <h1>LOOKING FOR FRIENDS?</h1>
             </div>
             <div class="flcr_container" data-user-id="<?php echo $account['id']; ?>">
-               
                 <!-- USER PROFILES WILL BE DISPLAYED HERE THROUGH AJAX -->
             </div>
         </div>
