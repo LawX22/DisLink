@@ -184,10 +184,10 @@ if (!isset($_SESSION['email'])) {
     <div class="posted-column">
         <div class="post-box">
         <!-- Add your post boxes or content here -->
+
+        <!-- POST DIPLAY START-->
         <div id="ContentGet">
-            
-        <!-- POST DIPLAY -->
-        <div class="posted">
+            <div class="posted">
                 <div v-for="post in contents" :key="post.id" class="post-container">
                     <div class="post">
                         <div class="post-header">
@@ -202,15 +202,22 @@ if (!isset($_SESSION['email'])) {
                             </div>
                         </div>
                         <div class="btn-cta-post">
-                            <button>Edit</button>
+                            <button @click="EditContent(post.id)">Edit</button>
                             <button @click="DeletePost(post.id)">Delete</button>
                         </div>
                         <div class="caption">
-                            <label>{{ post.content }}</label>
+                            <label v-if="!post.mei">{{ post.content }}</label>
+                            <div v-else>
+                                <input v-model="post.mel">
+                                <button @click="Save(post)">Save</button>
+                                <button @click="Cancel(post)">Cancel</button>
+                            </div>
                         </div>
-                        <div class="post-img">
-                            <img :src="post.image" alt="" width="575" height="400">
-                        </div>
+                        <template v-if="post.image && post.image.length > 0">
+                            <div class="post-img">
+                                <img v-if="post.image" :src="post.image" alt="" width="575" height="400">
+                            </div>
+                        </template>
                         <div class="comment">
                             <p>comment</p>
                         </div>
