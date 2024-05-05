@@ -211,6 +211,9 @@ if (!isset($_SESSION['email'])) {
                         <div class="post-img">
                             <img :src="post.image" alt="" width="575" height="400">
                         </div>
+                        <div class="comment">
+                            <p>comment</p>
+                        </div>
                     </div>
                 </div>
             </div>
