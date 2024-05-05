@@ -17,6 +17,8 @@ if (!isset($_SESSION['email'])) {
     <title>DisLink</title>
     <link rel="icon" type="image/x-icon" href="Assets/logo.png"/>
     <link rel="stylesheet" href="./css/dashboard-style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/get-post.js" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
@@ -68,16 +70,18 @@ if (!isset($_SESSION['email'])) {
                 <p><?php echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?></p>
             </div>
             <div class="popup-content">
-                    <textarea class="popup-textarea" placeholder="What's on your mind? <?php echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?>" oninput="autoExpand(this)"></textarea>
-                <div class="upload-img">
-                    <label for="postImage" class="upload-label">
-                        <span>Upload Image</span>
-                        <input type="file" id="postImage" name="postImage" accept="image/*" style="display: none;">
-                    </label>
-                </div>
-                <div class="popup-btns">
-                    <button class="popup-btn">Post</button>
-                </div>
+                    <form id="myMind">
+                        <textarea class="popup-textarea" name="content" placeholder="What's on your mind? <?php echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?>" oninput="autoExpand(this)"></textarea>
+                    <div class="upload-img">
+                        <label for="postImage" class="upload-label">
+                            <span>Upload Image</span>
+                            <input type="file" id="postImage" name="image" accept="image/*" style="display: none;">
+                        </label>
+                    </div>
+                    <div class="popup-btns">
+                        <button class="popup-btn">Post</button>
+                    </div>
+                    </form>
             </div>
         </div>
         <!-- Overlay -->
@@ -180,6 +184,21 @@ if (!isset($_SESSION['email'])) {
     <div class="posted-column">
         <div class="post-box"></div>
         <!-- Add your post boxes or content here -->
+        <div id="ContentGet">
+            
+        <!-- POST DIPLAY -->
+            <div v-for="post in contents" :key="post.id">
+                <div>
+                    <button>Edit</button>
+                    <button @click="DeletePost(post.id)">Delete</button>
+                </div>
+                <label>{{ post.content }}</label>
+                <label>{{ post.created_at}}</label>
+                <img :src="post.image" alt="" width="600" height="400">
+            </div>
+        </div>
+
+        <!-- POST DISPLAY END -->
     </div>
     <div class="friends-column">
         <div class="friends-header">
@@ -203,6 +222,7 @@ if (!isset($_SESSION['email'])) {
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="./js/post.js"></script>
 <script src="./js/main.js"></script>
 <script src="./js/script.js"></script>
 <script src="./js/update-profile.js"></script>

@@ -22,16 +22,24 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         $_SESSION['lastname'] = $user['lastname']; // Set last name in session
         $_SESSION['profile_picture'] = $user['profile_picture']; // Set profile image URL in session
         // Return a success response
-        echo "success";
+
+        $res = array(
+            "success" => true,
+            "uid" => $user['id']
+        );
+        echo json_encode($res);
+        //echo "success";
         exit();
     } else {
         // Return an error message
-        echo "Invalid credentials";
+        //echo "Invalid credentials";
+        echo json_encode(['error' => 'Invalid credentials']);
         exit();
     }
 } else {
     // Return an error message if email and password are not set
-    echo "Email and password are required";
+    //echo "Email and password are required";
+    echo json_encode(['error' => 'Email and password are required']);
     exit();
 }
 ?>

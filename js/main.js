@@ -8,14 +8,16 @@ $(document).ready(function(){
             type: 'POST',
             url: 'login-process.php', // Update to point to login processing script
             data: formData,
+            dataType: "json",
             success: function(response){
                 // Check response from server
-                if(response.trim() === "success") {
+                if(response.success) {
+                    localStorage.setItem('UserID', response.uid);
                     // Redirect to dashboard page if login successful
                     window.location.href = "dashboard.php";
                 } else {
                     // Display error message if login failed
-                    $('.error-msg').text(response);
+                    $('.error-msg').text(response.error);
                 }
             },
             error: function(xhr, status, error) {
@@ -74,6 +76,7 @@ $(document).ready(function() {
             url: 'logout.php',
             method: 'POST',
             success: function(response) {
+                localStorage.removeItem('UserID');
                 // Redirect to the login page after successful logout
                 window.location.href = 'login.php';
             },
