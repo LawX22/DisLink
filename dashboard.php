@@ -203,8 +203,8 @@ if (!isset($_SESSION['email'])) {
                             </div>
                         </div>
                         <div class="btn-cta-post">
-                            <button @click="EditContent(post.id)">Edit</button>
-                            <button @click="DeletePost(post.id)">Delete</button>
+                            <i class="fas fa-edit" @click="EditContent(post.id)"></i>
+                            <i class="fas fa-trash-alt" @click="DeletePost(post.id)"></i>
                         </div>
                         <div class="caption">
                             <label v-if="!post.mei">{{ post.content }}</label>
@@ -220,8 +220,12 @@ if (!isset($_SESSION['email'])) {
                             </div>
                         </template>
                         <div class="comment">
-                            <p>comment</p>
-                        </div>
+                                <input type="text" onclick="showCommentPopup()" placeholder="Write a comment...">
+                                <div id="comment-popup" class="popup">
+                                    <input type="text" id="comment-input" placeholder="Write a comment...">
+                                    <button onclick="sendComment()">Send</button>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -255,18 +259,5 @@ if (!isset($_SESSION['email'])) {
 <script src="./js/script.js"></script>
 <script src="./js/update-profile.js"></script>
 
-<script>
-    function previewImage(input) {
-        var preview = document.getElementById('imagePreview');
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                preview.src = e.target.result;
-                preview.style.display = 'block';
-            }
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-</script>
 </body>
 </html>

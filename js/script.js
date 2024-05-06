@@ -109,4 +109,35 @@ function openChangeProfilePopup() {
 }
 
 
+// Image View for Posting
+function previewImage(input) {
+    var preview = document.getElementById('imagePreview');
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            preview.src = e.target.result;
+            preview.style.display = 'block';
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+function showCommentPopup() {
+    var popup = document.getElementById("comment-popup");
+    popup.style.display = "block";
+}
+
+function sendComment() {
+    var commentInput = document.getElementById("comment-input");
+    var comment = commentInput.value;
+    // Here you can implement the logic to send the comment
+    console.log("Comment sent: " + comment);
+    // Close the popup after sending
+    var popup = document.getElementById("comment-popup");
+    popup.style.display = "none";
+    // Clear the input field
+    commentInput.value = "";
+}
+
+
 
