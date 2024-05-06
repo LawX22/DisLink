@@ -70,18 +70,19 @@ if (!isset($_SESSION['email'])) {
                 <p><?php echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?></p>
             </div>
             <div class="popup-content">
-                    <form id="myMind">
-                        <textarea class="popup-textarea" name="content" placeholder="What's on your mind? <?php echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?>" oninput="autoExpand(this)"></textarea>
-                    <div class="upload-img">
-                        <label for="postImage" class="upload-label">
-                            <span>Upload Image</span>
-                            <input type="file" id="postImage" name="image" accept="image/*" style="display: none;">
-                        </label>
+                <form id="myMind">
+                    <textarea class="popup-textarea" name="content" placeholder="What's on your mind? <?php echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?>" oninput="autoExpand(this)"></textarea>
+                    <div class="upload-img-container">
+                        <img id="imagePreview" src="#" alt="Image Preview" style="display: none;">
                     </div>
+                    <label for="postImage" class="upload-label">
+                        <span>Upload Image</span>
+                        <input type="file" id="postImage" name="image" accept="image/*" style="display: none;" onchange="previewImage(this)">
+                    </label>
                     <div class="popup-btns">
                         <button class="popup-btn">Post</button>
                     </div>
-                    </form>
+                </form>
             </div>
         </div>
         <!-- Overlay -->
@@ -126,7 +127,7 @@ if (!isset($_SESSION['email'])) {
                                                 <img src="<?php echo $_SESSION['profile_picture']; ?>" alt="Profile Picture">
                                             </div>
                                             <div class="upload-img1">
-                                                    <label for="postImage" class="upload-label">
+                                                    <label for="postImage" class="upload-label1">
                                                         <span>Change Profile</span>
                                                         <input type="file" id="postImage" name="postImage" accept="image/*" style="display: none;">
                                                     </label>
@@ -253,5 +254,19 @@ if (!isset($_SESSION['email'])) {
 <script src="./js/main.js"></script>
 <script src="./js/script.js"></script>
 <script src="./js/update-profile.js"></script>
+
+<script>
+    function previewImage(input) {
+        var preview = document.getElementById('imagePreview');
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
 </body>
 </html>
