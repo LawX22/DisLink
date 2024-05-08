@@ -122,6 +122,9 @@ function previewImage(input) {
     }
 }
 
+
+
+// Comment View 
 function showCommentPopup() {
     var popup = document.getElementById("comment-popup");
     popup.style.display = "block";

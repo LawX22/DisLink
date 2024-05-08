@@ -262,17 +262,139 @@ label {
 
 .comment {
     height: 10vh;
-    /* border: 1px solid red; */
+    border: 1px solid #424549;
+    border-radius: 5px;
+
 }
 
 .comment input {
     padding-left: 5px;
-    margin-top: 2vh;
     height: 5vh;
     width: 70%;
     border-radius: 10px;
+    position: relative;
+    bottom: 6vh;
 }
 
+.comment-profile img{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    position: relative;
+    right: 38.5vh;
+    top: 1vh;
+}
+
+.comment_popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;  
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    border: 1px solid red;
+    height: 50vh;
+    width: 30%;
+}
+
+.comment-send {
+    position: relative;
+    bottom: 10.5vh;
+    left: 38vh;
+    color: white;
+    font-size: 25px;
+}
+
+
+.comment-popup {
+    display: none;
+    position: absolute;
+    top: 10vh;
+    background-color: #3a3b3c;
+    padding: 10px;
+    height: 60vh;
+    width: 40%;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.comment-popup.active {
+    display: block;
+}
+
+.comment-display {
+    margin-top: 2vh;
+    /* border: 1px solid red; */
+    height: 19vh;
+}
+
+.comment-display img{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    margin-top: 1.5vh;
+    position: relative;
+    right: 35vh;
+}
+
+.comment-text {
+    background-color: #333;
+    border-radius: 5px;
+    width: 84%;
+    height: 12vh;
+    position: relative;
+    left: 12vh;
+    bottom: 8.5vh;
+}
+
+.comment-text p {
+    display: flex;
+    position: relative;
+    top: 10px;
+    left: 10px;
+    width: 65.6vh;
+}
+
+
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 999;
+}
+
+.popup-overlay.active {
+    display: block;
+}
+
+.actions-container {
+    display: flex;
+    color: white;
+}
+
+.actions-container > div {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #424549;
+    border-bottom: 1px solid #424549;
+    height: 40px;
+    margin: 1vh 0 2vh 0 ;
+    transition: background-color 0.3s ease; 
+    cursor: pointer;
+}
+
+.actions-container > div:hover {
+    background-color: #424549; 
+}
 /* ------------ CAPTION ------------ */
 
 .btn-cta-post button {

@@ -219,13 +219,37 @@ if (!isset($_SESSION['email'])) {
                                 <img v-if="post.image" :src="post.image" alt="" width="575" height="400">
                             </div>
                         </template>
-                        <div class="comment">
-                                <input type="text" onclick="showCommentPopup()" placeholder="Write a comment...">
-                                <div id="comment-popup" class="popup">
-                                    <input type="text" id="comment-input" placeholder="Write a comment...">
-                                    <button onclick="sendComment()">Send</button>
+                        <div class="actions-container">
+                                <div class="like-container">Like</div>
+                                <div class="comment-popup-container">
+                                    <div class="comment-container" onclick="togglePopup('comment-popup-1')">Comment</div>
+                                    <div id="comment-popup-1" class="comment-popup">
+                                        Your comment popup content here...
+                                        <div class="comment-display">
+                                            <?php if(isset($_SESSION['profile_picture'])): ?>
+                                                <img src="<?php echo $_SESSION['profile_picture']; ?>" alt="Profile">
+                                            <?php endif; ?>
+
+                                            <div class="comment-text">
+                                                <p>bfvbfxkgbkdfgkkvhfh</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="popup-overlay" onclick="togglePopup('comment-popup-1')"></div>
                                 </div>
+                                <div class="share-container">Share</div>
                             </div>
+                        <div class="comment">
+                            <div class="comment-profile">
+                                <?php if(isset($_SESSION['profile_picture'])): ?>
+                                    <img src="<?php echo $_SESSION['profile_picture']; ?>" alt="Profile">
+                                <?php endif; ?>
+                                </div>
+                                <input type="text" onclick="showCommentPopup()" placeholder="Write a comment...">
+                                <div class="comment-send">
+                                    <i class="fas fa-paper-plane" onclick="sendComment()"></i>
+                                </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -258,6 +282,16 @@ if (!isset($_SESSION['email'])) {
 <script src="./js/main.js"></script>
 <script src="./js/script.js"></script>
 <script src="./js/update-profile.js"></script>
+
+
+<script>
+    function togglePopup(popupId) {
+        var popup = document.getElementById(popupId);
+        popup.classList.toggle("active");
+        var overlay = popup.nextElementSibling;
+        overlay.classList.toggle("active");
+    }
+</script>
 
 </body>
 </html>
