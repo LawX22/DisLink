@@ -233,8 +233,12 @@ if (!isset($_SESSION['email'])) {
                                             <?php endif; ?>
 
                                             <div class="comment-text">
-                                                <button  @click="ChangeMyWill(meth.id)">edit</button>
-                                                <button @click="StopLife(meth.id)">delete</button>
+
+                                                <template v-if="meth.user_id == curuser">
+                                                    <button  @click="ChangeMyWill(meth.id)">edit</button>
+                                                    <button @click="StopLife(meth.id)">delete</button>
+                                                </template>
+
                                                 <p v-if="!meth.cmei">{{ meth.comment_text }}</p>
                                                 <div v-else>
                                                     <input v-model="meth.cmel">
