@@ -84,21 +84,49 @@ const content = Vue.createApp({
                 }
             });
         },
-
         FetchMeth(id) {
             $.ajax({
-                url: `fetch_ment.php?id=${id}`,
+                url: `fetch_meth.php?id=${id}`,
                 method: 'GET',
                 dataType: 'json',
                 success: (data) => {
                     this.comments = data.map(comment => ({
                         ...comment,
                         cmei: false,
-                        cmel: comment.comment
+                        cmel: comment.comment_text
                     }));
                 },
                 error: (error) => {
                     console.error("Error fetching data:", error);
+                }
+            });
+        },
+        ChangeMyWill(id){
+            this.comments = this.comments.map(comment => ({
+                ...comment,
+                cmei: comment.id === id
+            }));
+        },
+        CancelMyLife(meth) {
+            meth.cmei = false;
+            meth.cmel = meth.comment_text;
+        },
+        ChangeLife(meth) {
+            $.ajax({
+                url: `edit-comment.php?methid=${meth.id}&methe=${meth.cmel}`,
+                success: () => {
+                    location.reload();
+                }
+            });
+        },
+        StopLife(id) {
+            $.ajax({
+                url: `delete-meth.php?meth_id=${id}`,
+                success: () => {
+                    location.reload();
+                },
+                error: (error) => {
+                    console.error("Error deleting post:", error);
                 }
             });
         },

@@ -193,12 +193,10 @@ if (!isset($_SESSION['email'])) {
                     <div class="post">
                         <div class="post-header">
                             <div class="post-user-profile">
-                            <?php if(isset($_SESSION['profile_picture'])): ?>
-                                <img src="<?php echo $_SESSION['profile_picture']; ?>" alt="Profile">
-                            <?php endif; ?>
+                                <img :src="post.profile_picture" alt="Profile">
                             </div>
                             <div class="post-user-name">
-                                <p><?php echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?></p>
+                                <p>{{ post.firstname }} {{ post.lastname }}</p>
                                 <label>{{ post.created_at}}</label>
                             </div>
                         </div>
@@ -235,9 +233,14 @@ if (!isset($_SESSION['email'])) {
                                             <?php endif; ?>
 
                                             <div class="comment-text">
-                                                <!-- <button>edit</button>
-                                                <button>delete</button> -->
-                                                <p>{{ meth.comment_text }}</p>
+                                                <button  @click="ChangeMyWill(meth.id)">edit</button>
+                                                <button @click="StopLife(meth.id)">delete</button>
+                                                <p v-if="!meth.cmei">{{ meth.comment_text }}</p>
+                                                <div v-else>
+                                                    <input v-model="meth.cmel">
+                                                    <button @click="ChangeLife(meth)">Save</button>
+                                                    <button @click="CancelMyLife(meth)">Cancel</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
