@@ -1,11 +1,17 @@
 const content = Vue.createApp({
     data() {
         return {
-            contents: []
+            contents: [],
+            comments: [],
+            curuser: ""
         }
     },
     mounted() {
-        this.FetchPost();
+        this.curuser = localStorage.getItem('UserID');
+        this.FetchPost(() => {
+            const form = document.getElementById('myFreeWill');
+            form.addEventListener('submit', this.HandleBar);
+        });
     },
     methods: {
         FetchPost() {
@@ -53,7 +59,51 @@ const content = Vue.createApp({
                     console.error("Error deleting post:", error);
                 }
             });
-        }
+        },
+
+
+        //FOR COMMENT
+
+        HandleBar(event) {
+            event.preventDefault();
+            const userId = localStorage.getItem('UserID');
+            const formData = new FormData(event.target);
+            formData.append('userid', userId);
+
+            $.ajax({
+                url: 'comment.php',
+                method: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: () => {
+                    location.reload();
+                },
+                error: function(error) {
+                    console.error('Network response was not ok', error);
+                }
+            });
+        },
+
+        FetchMeth(id) {
+            $.ajax({
+                url: `fetch_ment.php?id=${id}`,
+                method: 'GET',
+                dataType: 'json',
+                success: (data) => {
+                    this.comments = data.map(comment => ({
+                        ...comment,
+                        cmei: false,
+                        cmel: comment.comment
+                    }));
+                },
+                error: (error) => {
+                    console.error("Error fetching data:", error);
+                }
+            });
+        },
+
+
     }
 });
 

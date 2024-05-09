@@ -202,10 +202,14 @@ if (!isset($_SESSION['email'])) {
                                 <label>{{ post.created_at}}</label>
                             </div>
                         </div>
-                        <div class="btn-cta-post">
-                            <i class="fas fa-edit" @click="EditContent(post.id)"></i>
-                            <i class="fas fa-trash-alt" @click="DeletePost(post.id)"></i>
-                        </div>
+
+                        <template v-if="post.user_id == curuser">
+                            <div class="btn-cta-post">
+                                <i class="fas fa-edit" @click="EditContent(post.id)"></i>
+                                <i class="fas fa-trash-alt" @click="DeletePost(post.id)"></i>
+                            </div>
+                        </template>
+                        
                         <div class="caption">
                             <label v-if="!post.mei">{{ post.content }}</label>
                             <div v-else>
@@ -222,16 +226,18 @@ if (!isset($_SESSION['email'])) {
                         <div class="actions-container">
                                 <div class="like-container">Like</div>
                                 <div class="comment-popup-container">
-                                    <div class="comment-container" onclick="togglePopup('comment-popup-1')">Comment</div>
+                                    <div class="comment-container" @click="FetchMeth(post.id)" onclick="togglePopup('comment-popup-1')">Comment</div>
                                     <div id="comment-popup-1" class="comment-popup">
                                         Your comment popup content here...
-                                        <div class="comment-display">
+                                        <div v-for="meth in comments" :key="meth.id" class="comment-display">
                                             <?php if(isset($_SESSION['profile_picture'])): ?>
                                                 <img src="<?php echo $_SESSION['profile_picture']; ?>" alt="Profile">
                                             <?php endif; ?>
 
                                             <div class="comment-text">
-                                                <p>bfvbfxkgbkdfgkkvhfh</p>
+                                                <!-- <button>edit</button>
+                                                <button>delete</button> -->
+                                                <p>{{ meth.comment_text }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -245,10 +251,13 @@ if (!isset($_SESSION['email'])) {
                                     <img src="<?php echo $_SESSION['profile_picture']; ?>" alt="Profile">
                                 <?php endif; ?>
                                 </div>
-                                <input type="text" onclick="showCommentPopup()" placeholder="Write a comment...">
-                                <div class="comment-send">
-                                    <i class="fas fa-paper-plane" onclick="sendComment()"></i>
-                                </div>
+                                <form @submit.prevent="HandleBar" id="myFreeWill">
+                                    <input type="hidden" name="postid" :value="post.id">
+                                    <input type="text" name="mentmsg" placeholder="Write a comment...">
+                                    <div class="comment-send">
+                                        <i class="fas fa-paper-plane"><button></button></i>
+                                    </div>
+                                </form>
                         </div>
                     </div>
                 </div>
@@ -279,6 +288,7 @@ if (!isset($_SESSION['email'])) {
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="./js/post.js"></script>
+<!-- <script src="./js/comment.js"></script> -->
 <script src="./js/main.js"></script>
 <script src="./js/script.js"></script>
 <script src="./js/update-profile.js"></script>
