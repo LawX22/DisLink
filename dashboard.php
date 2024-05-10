@@ -259,7 +259,7 @@ if (!isset($_SESSION['email'])) {
                                     <input type="hidden" name="postid" :value="post.id">
                                     <input type="text" name="mentmsg" placeholder="Write a comment...">
                                     <div class="comment-send">
-                                        <i class="fas fa-paper-plane"><button></button></i>
+                                        <button><i class="fas fa-paper-plane"></i></button>
                                     </div>
                                 </form>
                         </div>

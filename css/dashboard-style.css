@@ -263,8 +263,8 @@ label {
 .comment {
     height: 10vh;
     border: 1px solid #424549;
-    border-radius: 5px;
-
+    border-radius: 5px; 
+    padding-top: 0.5vh;
 }
 
 .comment input {
@@ -281,7 +281,7 @@ label {
     height: 50px;
     width: 50px;
     position: relative;
-    right: 38.5vh;
+    right: 33.5vh;
     top: 1vh;
 }
 
@@ -303,11 +303,23 @@ label {
 .comment-send {
     position: relative;
     bottom: 10.5vh;
-    left: 38vh;
+    left: 70vh;
     color: white;
-    font-size: 25px;
 }
 
+.comment-send button {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none; 
+    width: 5vh;
+    height: 5vh;
+}
+
+.comment-send i {
+    font-size: 25px;
+}
 
 .comment-popup {
     display: none;
