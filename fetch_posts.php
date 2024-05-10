@@ -2,7 +2,7 @@
 include 'dbconnection.php';
 
 try{
-    $query = "SELECT post.*, users.* FROM post
+    $query = "SELECT post.*, users.firstname, users.lastname, users.profile_picture FROM post
             INNER JOIN users ON post.user_id = users.id 
             ORDER BY post.id DESC";
     $statement = $pdo->prepare($query);
