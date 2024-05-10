@@ -20,7 +20,7 @@ $friendId = $_POST['friendId'];
 // Log received friendId
 error_log("Received Friend ID: $friendId");
 
-$stmt = $pdo->prepare("DELETE FROM follow WHERE user_id = (SELECT id FROM users WHERE email = ?) AND friend_id = ?");
+$stmt = $pdo->prepare("DELETE FROM follow WHERE my_id = (SELECT id FROM users WHERE email = ?) AND friend_id = ?");
 $stmt->execute([$userEmail, $friendId]);
 
 if ($stmt->rowCount() > 0) {

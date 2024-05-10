@@ -4,9 +4,9 @@ include 'dbconnection.php';
 $cuid = $_GET['cuid'];
 
 try{
-    $query = "SELECT post.*, users.firstname, users.lastname, users.profile_picture, follow.*
+    $query = "SELECT post.*, users.firstname, users.lastname, users.profile_picture, follow.my_id, follow.friend_id
             FROM post INNER JOIN users ON post.user_id = users.id LEFT JOIN follow ON post.user_id = follow.friend_id
-            WHERE follow.user_id = :cuid OR users.id = :cuid
+            WHERE follow.my_id = :cuid OR users.id = :cuid
             ORDER BY post.id DESC";
     $statement = $pdo->prepare($query);
     $statement->bindParam(':cuid', $cuid);
