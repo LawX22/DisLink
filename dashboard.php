@@ -228,10 +228,7 @@ if (!isset($_SESSION['email'])) {
                                     <div id="comment-popup-1" class="comment-popup">
                                         Your comment popup content here...
                                         <div v-for="meth in comments" :key="meth.id" class="comment-display">
-                                            <?php if(isset($_SESSION['profile_picture'])): ?>
-                                                <img src="<?php echo $_SESSION['profile_picture']; ?>" alt="Profile">
-                                            <?php endif; ?>
-
+                                            <img :src="meth.profile_picture" alt="Profile">
                                             <div class="comment-text">
 
                                                 <template v-if="meth.user_id == curuser">

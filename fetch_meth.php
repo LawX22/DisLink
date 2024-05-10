@@ -4,7 +4,8 @@ include 'dbconnection.php';
 $postid = $_GET['id'];
 
 try{
-    $query = "SELECT * FROM comment WHERE post_id = :postid ORDER BY id DESC";
+    $query = "SELECT comment.*, users.profile_picture FROM comment INNER JOIN users ON users.id = comment.user_id
+    WHERE post_id = :postid ORDER BY id DESC";
     $statement = $pdo->prepare($query);
     $statement->bindParam(':postid', $postid);
     $statement->execute();
