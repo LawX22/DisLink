@@ -15,8 +15,9 @@ const content = Vue.createApp({
     },
     methods: {
         FetchPost() {
+            const UID = localStorage.getItem('UserID');
             $.ajax({
-                url: `fetch_posts.php`,
+                url: `fetch_posts.php?cuid=${UID}`,
                 method: 'GET',
                 dataType: 'json',
                 success: (data) => {
