@@ -224,7 +224,7 @@ if (!isset($_SESSION['email'])) {
                         <div class="actions-container">
                                 <div class="like-container">
                                 <div class="like-icon"> <i class='bx bxs-like'></i></div>
-                                    Like
+                                    LikeD
                                 </div>
                                 <div class="comment-popup-container">
                                     <div class="comment-container" @click="FetchMeth(post.id)" onclick="togglePopup('comment-popup-1')">
