@@ -222,9 +222,15 @@ if (!isset($_SESSION['email'])) {
                             </div>
                         </template>
                         <div class="actions-container">
-                                <div class="like-container">Like</div>
+                                <div class="like-container">
+                                <div class="like-icon"> <i class='bx bxs-like'></i></div>
+                                    Like
+                                </div>
                                 <div class="comment-popup-container">
-                                    <div class="comment-container" @click="FetchMeth(post.id)" onclick="togglePopup('comment-popup-1')">Comment</div>
+                                    <div class="comment-container" @click="FetchMeth(post.id)" onclick="togglePopup('comment-popup-1')">
+                                    <div class="comment-icon"> <i class='bx bxs-comment-dots bx-flip-horizontal' ></i> </div>
+                                    </div>
+                                    Comment
                                     <div id="comment-popup-1" class="comment-popup">
                                         Your comment popup content here...
                                         <div v-for="meth in comments" :key="meth.id" class="comment-display">
@@ -247,7 +253,9 @@ if (!isset($_SESSION['email'])) {
                                     </div>
                                     <div class="popup-overlay" onclick="togglePopup('comment-popup-1')"></div>
                                 </div>
-                                <div class="share-container">Share</div>
+                                <div class="share-container">
+                                <div class="share-icon"> <i class='bx bxs-share bx-flip-horizontal' ></i> </div>    
+                                Share</div>
                             </div>
                         <div class="comment">
                             <div class="comment-profile">

@@ -407,6 +407,13 @@ label {
 .actions-container > div:hover {
     background-color: #424549; 
 }
+
+.like-icon, .comment-icon, .share-icon {
+    font-size: 22px;
+    margin-top: 2px;
+    margin-right: 5px;
+}
+
 /* ------------ CAPTION ------------ */
 
 .btn-cta-post button {
