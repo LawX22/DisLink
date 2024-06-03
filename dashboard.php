@@ -211,9 +211,11 @@ if (!isset($_SESSION['email'])) {
                         <div class="caption">
                             <label v-if="!post.mei">{{ post.content }}</label>
                             <div v-else>
-                                <input v-model="post.mel">
-                                <button @click="Save(post)">Save</button>
-                                <button @click="Cancel(post)">Cancel</button>
+                            <input v-model="post.mel" class="large-input">
+                                <div class="btn-cta-save">
+                                <i class="fa fa-save" @click="Save(post)"></i>
+                                <i class="fa fa-times" @click="Cancel(post)"></i>
+                                </div>
                             </div>
                         </div>
                         <template v-if="post.image && post.image.length > 0">
@@ -224,7 +226,7 @@ if (!isset($_SESSION['email'])) {
                         <div class="actions-container">
                                 <div class="like-container">
                                 <div class="like-icon"> <i class='bx bxs-like'></i></div>
-                                    LikeD
+                                    Like
                                 </div>
                                 <div class="comment-popup-container">
                                     <div class="comment-container" @click="FetchMeth(post.id)" onclick="togglePopup('comment-popup-1')">
