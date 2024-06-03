@@ -370,6 +370,18 @@ label {
     width: 65.6vh;
 }
 
+.comment-edit {
+    display: flex;
+}
+
+.comment-edit button{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 20%;
+    height: 10%;
+    margin-bottom: 2px;
+}
 
 .popup-overlay {
     display: none;
