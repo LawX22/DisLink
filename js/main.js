@@ -178,10 +178,10 @@ $(document).ready(function(){
                     var friendName = $('<div>').addClass('friend-name').text(fullName);
 
                     // Create unfollow icon
-                    var unfollowIcon = $('<i>').addClass('fas fa-user-minus unfollow-icon').attr('data-friend-id', friend.friend_id); // Updated to friend.friend_id
+                    // var unfollowIcon = $('<i>').addClass('fas fa-user-minus unfollow-icon').attr('data-friend-id', friend.friend_id); // Updated to friend.friend_id
 
                     // Append elements to friend profile
-                    friendProfile.append(profileImg, friendName, unfollowIcon);
+                    friendProfile.append(profileImg, friendName);
 
                     // Append friend profile to display
                     $('.display-friends').append(friendProfile);
