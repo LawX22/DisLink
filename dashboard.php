@@ -213,7 +213,7 @@ if (!isset($_SESSION['email'])) {
                             <div v-else>
                             <input v-model="post.mel" class="large-input">
                                 <div class="btn-cta-save">
-                                <i class="fa fa-save" @click="Save(post)"></i>
+                                <i class="fas fa-edit" @click="Save(post)"></i>
                                 <i class="fa fa-times" @click="Cancel(post)"></i>
                                 </div>
                             </div>
