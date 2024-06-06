@@ -7,7 +7,11 @@ if (!isset($_SESSION['email'])) {
     header("Location: login.php");
     exit();
 }
+
+// Get the user ID from the session
+$userId = $_SESSION['user_id'];
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -224,10 +228,16 @@ if (!isset($_SESSION['email'])) {
                             </div>
                         </template>
                         <div class="actions-container">
-                                <div class="like-container">
-                                <div class="like-icon"> <i class='bx bxs-like'></i></div>
-                                    Like
-                                </div>
+                        
+                        <div class="like-container">
+                        <div class="like-icon">
+                        <i class='bx bxs-like' id="like-icon-123" onclick="toggleLike(123, '<?php echo htmlspecialchars($userId, ENT_QUOTES, 'UTF-8'); ?>')"></i>
+
+                        </div>
+                        <span id="like-count-123">0</span>
+                    </div>
+
+
                                 <div class="comment-popup-container">
                                     <div class="comment-container" @click="FetchMeth(post.id)" onclick="togglePopup('comment-popup-1')">
                                     <div class="comment-icon"> <i class='bx bxs-comment-dots bx-flip-horizontal' ></i> </div>
@@ -304,20 +314,40 @@ if (!isset($_SESSION['email'])) {
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="./js/post.js"></script>
-<!-- <script src="./js/comment.js"></script> -->
 <script src="./js/main.js"></script>
 <script src="./js/script.js"></script>
 <script src="./js/update-profile.js"></script>
+<script src="./js/like.js"></script>
 
 
 <script>
-    function togglePopup(popupId) {
-        var popup = document.getElementById(popupId);
-        popup.classList.toggle("active");
-        var overlay = popup.nextElementSibling;
-        overlay.classList.toggle("active");
-    }
+    function toggleLike(postId, userId) {
+    console.log("Toggle like function called for post ID: ", postId);
+    
+    // Check if the post is liked or not
+    var isLiked = $("#like-icon-" + postId).hasClass("liked");
+
+    // Send AJAX request
+    $.ajax({
+        type: "POST",
+        url: isLiked ? "unlike.php" : "like.php",
+        data: { postId: postId, userId: userId },
+        success: function(response) {
+            console.log("AJAX call successful. Response: ", response);
+            // Update like count
+            $("#like-count-" + postId).text(response);
+            // Toggle like icon class
+            $("#like-icon-" + postId).toggleClass("liked");
+        },
+        error: function(xhr, status, error) {
+            console.error("AJAX call failed: ", xhr.responseText);
+        }
+    });
+}
+
 </script>
+
+
 
 </body>
 </html>

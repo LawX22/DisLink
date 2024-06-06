@@ -19,3 +19,10 @@ $('#myMind').submit(function(event) {
         }
     });
 });
+
+function togglePopup(popupId) {
+    var popup = document.getElementById(popupId);
+    popup.classList.toggle("active");
+    var overlay = popup.nextElementSibling;
+    overlay.classList.toggle("active");
+}
