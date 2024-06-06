@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2024 at 04:32 PM
+-- Generation Time: Jun 06, 2024 at 04:39 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -48,7 +48,13 @@ INSERT INTO `comment` (`id`, `post_id`, `user_id`, `comment_text`, `date_created
 (15, 34, 63, 'deym brocd', '2024-05-10 13:25:18'),
 (17, 39, 55, 'welcome to earth', '2024-05-10 14:14:03'),
 (18, 39, 75, 'nigga', '2024-05-10 13:56:40'),
-(19, 16, 75, 'deym bro', '2024-05-10 13:56:59');
+(19, 16, 75, 'deym bro', '2024-05-10 13:56:59'),
+(23, 44, 55, 'ngiga', '2024-05-14 08:04:46'),
+(24, 44, 83, 'chuya', '2024-05-14 08:06:10'),
+(25, 44, 80, 'vfvfg', '2024-05-14 08:06:54'),
+(26, 39, 80, 'fsdf', '2024-05-14 08:08:30'),
+(29, 48, 80, 'can i join to your server earthlings', '2024-06-03 02:24:30'),
+(31, 47, 55, 'sgvbsfdvkfsdbvf', '2024-06-05 13:57:00');
 
 -- --------------------------------------------------------
 
@@ -70,7 +76,6 @@ CREATE TABLE `follow` (
 INSERT INTO `follow` (`id`, `my_id`, `friend_id`, `created_at`) VALUES
 (1, 60, 61, '2024-04-28 19:15:01'),
 (2, 61, 60, '2024-04-28 21:45:51'),
-(3, 61, 63, '2024-04-28 21:46:13'),
 (4, 61, 64, '2024-04-28 22:08:37'),
 (5, 55, 63, '2024-04-28 22:17:57'),
 (6, 55, 74, '2024-04-28 22:18:01'),
@@ -113,7 +118,47 @@ INSERT INTO `follow` (`id`, `my_id`, `friend_id`, `created_at`) VALUES
 (43, 63, 75, '2024-05-10 21:24:54'),
 (44, 75, 55, '2024-05-10 21:56:45'),
 (45, 75, 79, '2024-05-10 22:29:11'),
-(46, 75, 61, '2024-05-10 22:29:15');
+(46, 75, 61, '2024-05-10 22:29:15'),
+(47, 83, 75, '2024-05-14 16:05:54'),
+(48, 60, 80, '2024-06-03 09:31:08'),
+(49, 55, 81, '2024-06-05 22:32:48');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `likes`
+--
+
+CREATE TABLE `likes` (
+  `id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `status` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `likes`
+--
+
+INSERT INTO `likes` (`id`, `post_id`, `user_id`, `status`) VALUES
+(88, 3, 0, 'unread'),
+(89, 2, 0, 'unread'),
+(93, 1, 0, 'unread'),
+(106, 123, 0, 'unread');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notification`
+--
+
+CREATE TABLE `notification` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `time` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -143,7 +188,13 @@ INSERT INTO `post` (`id`, `user_id`, `content`, `image`, `created_at`) VALUES
 (34, 75, 'v mx vcmnv', '', '2024-05-10 12:49:28'),
 (39, 80, 'yow wassup earthlings dsf', '', '2024-05-10 13:45:10'),
 (41, 55, 'wabalu', '', '2024-05-10 13:55:31'),
-(44, 75, 'bro what\'s on your mind', './uploads/1715351346_441283014_480573550970379_779293286563168443_n.png', '2024-05-10 14:29:29');
+(44, 75, 'bro what\'s on your mind', './uploads/1715351346_441283014_480573550970379_779293286563168443_n.png', '2024-05-10 14:29:29'),
+(45, 83, 'kfbksdbfkdsffsd', '', '2024-05-14 08:06:23'),
+(47, 55, 'The Beginning of begin', './uploads/1717380515_Screenshot (14).png', '2024-06-03 02:08:35'),
+(48, 55, 'Building an Emprirefdsrffe', './uploads/1717380706_Screenshot (46).png', '2024-06-05 13:55:08'),
+(49, 55, 'Golden zombiewd', './uploads/1717595801_Screenshot (62).png', '2024-06-05 14:23:48'),
+(55, 55, 'dsadadsd', '', '2024-06-06 02:30:50'),
+(56, 55, 'jhgjhj', '', '2024-06-06 03:31:03');
 
 -- --------------------------------------------------------
 
@@ -201,6 +252,18 @@ ALTER TABLE `follow`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `likes`
+--
+ALTER TABLE `likes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `notification`
+--
+ALTER TABLE `notification`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `post`
 --
 ALTER TABLE `post`
@@ -220,19 +283,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `follow`
 --
 ALTER TABLE `follow`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+
+--
+-- AUTO_INCREMENT for table `likes`
+--
+ALTER TABLE `likes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+
+--
+-- AUTO_INCREMENT for table `notification`
+--
+ALTER TABLE `notification`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `users`
