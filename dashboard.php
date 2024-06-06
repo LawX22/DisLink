@@ -178,8 +178,26 @@ $userId = $_SESSION['user_id'];
                     <div>
                         <i class="fa-solid fa-plus"></i>
                     </div>
-                    <div>
-                        <i class="fa-solid fa-bell"></i>
+                    
+                    <div class="noti-bell">
+                        <i class="fa-solid fa-bell" id="notify"></i>    
+                    </div>
+
+                </div>
+                <div class="notificationpopup" id="notipopup">
+                    <div class="popup-content">
+                        <div class="notifs">
+                            <span class="noti-profile"><img src="Assets/edison.jpg" alt="Profile Picture"></span>
+                            <span class="noti-text"> <p>Edison Liked your post</p> </span>
+                        </div>
+                        <div class="notifs">
+                            <span class="noti-profile"><img src="Assets/zeke.png" alt="Profile Picture"></span>
+                            <span class="noti-text"> <p>Zeke Commented your post</p> </span>
+                        </div>
+                        <div class="notifs">
+                            <span class="noti-profile"><img src="Assets/kreemo.png" alt="Profile Picture"></span>
+                            <span class="noti-text"> <p>Kreemo Liked your post</p> </span>
+                        </div>
                     </div>
                 </div>
 
@@ -318,34 +336,7 @@ $userId = $_SESSION['user_id'];
 <script src="./js/script.js"></script>
 <script src="./js/update-profile.js"></script>
 <script src="./js/like.js"></script>
-
-
-<script>
-    function toggleLike(postId, userId) {
-    console.log("Toggle like function called for post ID: ", postId);
-    
-    // Check if the post is liked or not
-    var isLiked = $("#like-icon-" + postId).hasClass("liked");
-
-    // Send AJAX request
-    $.ajax({
-        type: "POST",
-        url: isLiked ? "unlike.php" : "like.php",
-        data: { postId: postId, userId: userId },
-        success: function(response) {
-            console.log("AJAX call successful. Response: ", response);
-            // Update like count
-            $("#like-count-" + postId).text(response);
-            // Toggle like icon class
-            $("#like-icon-" + postId).toggleClass("liked");
-        },
-        error: function(xhr, status, error) {
-            console.error("AJAX call failed: ", xhr.responseText);
-        }
-    });
-}
-
-</script>
+<script src="./js/noti-popup.js"></script>
 
 
 
