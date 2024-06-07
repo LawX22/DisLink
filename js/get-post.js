@@ -133,6 +133,33 @@ const content = Vue.createApp({
         },
 
 
+        //I LIKE TURTLES
+
+        LikePP(pid, uid) {
+            $.ajax({
+                url: `like.php?pid=${pid}&uid=${uid}`,
+                success: () => {
+                    this.FetchPost();
+                },
+                error: (error) => {
+                    console.error("Error licking post:", error);
+                }
+            });
+        },
+
+        UnlikePP(pid, uid) {
+            $.ajax({
+                url: `unlike.php?pid=${pid}&uid=${uid}`,
+                success: () => {
+                    this.FetchPost();
+                },
+                error: (error) => {
+                    console.error("Error unlicking post:", error);
+                }
+            });
+        }
+
+
     }
 });
 

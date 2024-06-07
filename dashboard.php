@@ -257,12 +257,16 @@ $userId = $_SESSION['user_id'];
                                 </template>
                                 <div class="actions-container">
 
-                                    <div class="like-container">
-                                        <div class="like-icon">
-                                            <i class='bx bxs-like' id="like-icon-123" onclick="toggleLike(123, '<?php echo htmlspecialchars($userId, ENT_QUOTES, 'UTF-8'); ?>')"></i>
 
+                                    <!-- I LIKE TURTLES -->
+                                    <div class="like-container">
+                                        <div v-if="!post.likes_user_ids.includes(curuser)" class="like-icon">
+                                            <i class='bx bxs-like' @click="LikePP(post.id, curuser)"></i>
                                         </div>
-                                        <span id="like-count-123">0</span>
+                                        <div v-if="post.likes_user_ids.includes(curuser)" class="like-icon" style="color: blue;">
+                                            <i class='bx bxs-like' @click="UnlikePP(post.id, curuser)"></i>
+                                        </div>
+                                        <span>{{ post.likes_count }}</span>
                                     </div>
 
                                     <!-- COMMENT SECTION -->
@@ -316,7 +320,7 @@ $userId = $_SESSION['user_id'];
                                         </div>
                                     </form>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>

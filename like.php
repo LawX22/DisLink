@@ -1,34 +1,30 @@
 <?php
 include 'dbconnection.php';
 
-if(isset($_POST['postId']) && isset($_POST['userId'])) {
-    $postId = $_POST['postId'];
-    $userId = $_POST['userId'];
+if(isset($_GET['pid']) && isset($_GET['uid'])) {
+    $post_id = $_GET['pid'];
+    $user_id = $_GET['uid'];
     $status = "unread";
 
     try {
-        $query = "INSERT INTO likes (post_id, user_id, status) VALUES (:post_id, :user_id, :status)";
+        $query = "INSERT INTO likes (post_id, user_id, status)
+                  VALUES (:post_id, :user_id, :status)";
         $stmt = $pdo->prepare($query);
-        $stmt->bindParam(':post_id', $postId);
-        $stmt->bindParam(':user_id', $userId);
-        $stmt->bindParam(':status', $status);
+        $stmt->bindParam(':post_id', $post_id);
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->bindParam('status', $status);
         $res = $stmt->execute();
 
         if ($res) {
-            // Get updated like count
-            $query = "SELECT COUNT(*) AS likeCount FROM likes WHERE post_id = :post_id";
-            $stmt = $pdo->prepare($query);
-            $stmt->bindParam(':post_id', $postId);
-            $stmt->execute();
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
-            echo $row['likeCount'];
+            echo json_encode(['res' => 'success']);
         } else {
-            echo "Error";
+            echo json_encode(['res' => 'error']);
         }
-    } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
+    } catch (PDOException $th) {
+        echo json_encode(['error' => $th->getMessage()]);
     }
 } else {
-    echo "Error: postId and/or userId not provided.";
+    echo json_encode(['error' => 'Missing reference']);
 }
+
 ?>
