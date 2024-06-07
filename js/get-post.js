@@ -46,7 +46,7 @@ const content = Vue.createApp({
             $.ajax({
                 url: `edit-content.php?postid=${post.id}&content=${post.mel}`,
                 success: () => {
-                    location.reload();
+                    this.FetchPost();
                 }
             });
         },
@@ -54,7 +54,7 @@ const content = Vue.createApp({
             $.ajax({
                 url: `delete-posts.php?post_id=${id}`,
                 success: () => {
-                    location.reload();
+                    this.FetchPost();
                 },
                 error: (error) => {
                     console.error("Error deleting post:", error);
@@ -78,7 +78,7 @@ const content = Vue.createApp({
                 processData: false,
                 contentType: false,
                 success: () => {
-                    location.reload();
+                    this.FetchPost();
                 },
                 error: function(error) {
                     console.error('Network response was not ok', error);
