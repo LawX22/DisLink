@@ -9,7 +9,7 @@ if (!isset($_SESSION['email'])) {
 }
 
 // Get the user ID from the session
-$userId = $_SESSION['user_id'];
+// $userId = $_SESSION['user_id'];
 ?>
 
 
@@ -24,6 +24,7 @@ $userId = $_SESSION['user_id'];
     <link rel="stylesheet" href="./css/dashboard-style.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="js/get-post.js" defer></script>
+    <script src="js/get-notif.js" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
@@ -178,35 +179,39 @@ $userId = $_SESSION['user_id'];
                         <p><?php echo $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?></p>
                     </div>
 
-                    <div class="functions">
-                        <div>
-                            <i class="fa-solid fa-plus"></i>
-                        </div>
-
-                        <div class="noti-bell">
-                            <i class="fa-solid fa-bell" id="notify"></i>
-                        </div>
-
-                    </div>
-                    <div class="notificationpopup" id="notipopup">
-                        <div class="popup-content">
-                            <div class="notifs">
-                                <span class="noti-profile"><img src="Assets/edison.jpg" alt="Profile Picture"></span>
-                                <span class="noti-text">
-                                    <p>Edison Liked your post</p>
-                                </span>
+                    <!-- NOTICE ME SENPAI -->
+                    <div id="notifa">
+                        <div class="functions">
+                            <div>
+                                <i class="fa-solid fa-plus"></i>
                             </div>
-                            <div class="notifs">
-                                <span class="noti-profile"><img src="Assets/zeke.png" alt="Profile Picture"></span>
-                                <span class="noti-text">
-                                    <p>Zeke Commented your post</p>
-                                </span>
+
+                            <div class="noti-bell">
+                                <i class="fa-solid fa-bell" id="notify"></i>
+                                <span style="background-color: red;">{{ nutt }}</span>
                             </div>
-                            <div class="notifs">
-                                <span class="noti-profile"><img src="Assets/kreemo.png" alt="Profile Picture"></span>
-                                <span class="noti-text">
-                                    <p>Kreemo Liked your post</p>
-                                </span>
+
+                        </div>
+                        <div class="notificationpopup" id="notipopup">
+                            <div class="popup-content">
+                                <div class="notifs">
+                                    <span class="noti-profile"><img src="Assets/edison.jpg" alt="Profile Picture"></span>
+                                    <span class="noti-text">
+                                        <p>Edison Liked your post</p>
+                                    </span>
+                                </div>
+                                <div class="notifs">
+                                    <span class="noti-profile"><img src="Assets/zeke.png" alt="Profile Picture"></span>
+                                    <span class="noti-text">
+                                        <p>Zeke Commented your post</p>
+                                    </span>
+                                </div>
+                                <div class="notifs">
+                                    <span class="noti-profile"><img src="Assets/kreemo.png" alt="Profile Picture"></span>
+                                    <span class="noti-text">
+                                        <p>Kreemo Liked your post</p>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -353,7 +358,6 @@ $userId = $_SESSION['user_id'];
         <script src="./js/main.js"></script>
         <script src="./js/script.js"></script>
         <script src="./js/update-profile.js"></script>
-        <script src="./js/like.js"></script>
         <script src="./js/noti-popup.js"></script>
 
 

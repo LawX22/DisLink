@@ -3,6 +3,7 @@ const content = Vue.createApp({
         return {
             contents: [],
             comments: [],
+            nutt: [],
             curuser: ""
         }
     },
@@ -14,6 +15,9 @@ const content = Vue.createApp({
         });
     },
     methods: {
+
+        // FOR POST
+
         FetchPost() {
             const UID = localStorage.getItem('UserID');
             $.ajax({
@@ -63,7 +67,7 @@ const content = Vue.createApp({
         },
 
 
-        //FOR COMMENT
+        // FOR COMMENT
 
         HandleBar(event) {
             event.preventDefault();
@@ -133,7 +137,7 @@ const content = Vue.createApp({
         },
 
 
-        //I LIKE TURTLES
+        // I LIKE TURTLES
 
         LikePP(pid, uid) {
             $.ajax({
@@ -157,8 +161,7 @@ const content = Vue.createApp({
                     console.error("Error unlicking post:", error);
                 }
             });
-        }
-
+        },
 
     }
 });
