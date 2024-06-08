@@ -194,23 +194,13 @@ if (!isset($_SESSION['email'])) {
                         </div>
                         <div class="notificationpopup" id="notipopup">
                             <div class="popup-content">
-                                <div class="notifs">
-                                    <span class="noti-profile"><img src="Assets/edison.jpg" alt="Profile Picture"></span>
-                                    <span class="noti-text">
-                                        <p>Edison Liked your post</p>
-                                    </span>
-                                </div>
-                                <div class="notifs">
-                                    <span class="noti-profile"><img src="Assets/zeke.png" alt="Profile Picture"></span>
-                                    <span class="noti-text">
-                                        <p>Zeke Commented your post</p>
-                                    </span>
-                                </div>
-                                <div class="notifs">
-                                    <span class="noti-profile"><img src="Assets/kreemo.png" alt="Profile Picture"></span>
-                                    <span class="noti-text">
-                                        <p>Kreemo Liked your post</p>
-                                    </span>
+                                <div v-for="item in notifff" :key="item.id">
+                                    <div class="notifs">
+                                        <span class="noti-profile"><img :src="item.profile_picture" alt="Profile Picture"></span>
+                                        <span class="noti-text">
+                                            <p><strong>{{item.firstname}}</strong> Liked your post</p>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>

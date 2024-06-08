@@ -1,5 +1,4 @@
 <?php
-
 include 'dbconnection.php';
 
 $uid = $_GET['uid'];
