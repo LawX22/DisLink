@@ -187,8 +187,8 @@ if (!isset($_SESSION['email'])) {
                             </div>
 
                             <div class="noti-bell">
-                                <i class="fa-solid fa-bell" id="notify"></i>
-                                <span style="background-color: red;">{{ nutt }}</span>
+                                <i class="fa-solid fa-bell" id="notify" @click="Readme()"></i>
+                                <span v-if="nutt > 0" style="background-color: red;">{{ nutt }}</span>
                             </div>
 
                         </div>

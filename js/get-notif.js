@@ -42,7 +42,20 @@ const notif = Vue.createApp({
                     console.error("Error fetching data:", error);
                 }
             });
-        }
+        },
+
+        Readme() {
+            const slave = localStorage.getItem('UserID');
+            $.ajax({
+                url: `notif-read.php?uid=${slave}`,
+                success: () => {
+                    this.YouCunt();
+                },
+                error: (error) => {
+                    console.error("Error fetching data:", error);
+                }
+            });
+        },
     }
 });
 
