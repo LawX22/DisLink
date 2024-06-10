@@ -31,8 +31,24 @@ try {
     $statement->execute();
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+    foreach ($result as &$post) {
+        if (!empty($post['image'])) {
+            $imgFilename = json_decode($post['image'], true);
+            if (json_last_error() === JSON_ERROR_NONE) {
+                $post['image'] = array_map(function($filename) {
+                    return './uploads/' . $filename;
+                }, $imgFilename);
+            } else {
+                $post['image'] = [];
+            }
+        } else {
+            $post['image'] = [];
+        }
+    }
+
     header('Content-type: application/json');
     echo json_encode($result);
 } catch (PDOException $th) {
     echo json_encode(['error' => $th->getMessage()]);
 }
+?>

@@ -84,7 +84,7 @@ if (!isset($_SESSION['email'])) {
                         </div>
                         <label for="postImage" class="upload-label">
                             <span>Upload Image</span>
-                            <input type="file" id="postImage" name="image" accept="image/*" style="display: none;" onchange="previewImage(this)">
+                            <input type="file" id="postImage" name="image[]" accept="image/*" style="display: none;" onchange="previewImage(this)" multiple>
                         </label>
                         <div class="popup-btns">
                             <button class="popup-btn">Post</button>
@@ -246,11 +246,13 @@ if (!isset($_SESSION['email'])) {
                                     </div>
                                 </div>
                                 <div class="image-container">
-                                    <template v-if="post.image && post.image.length > 0">
-                                        <div class="post-img">
-                                            <img v-if="post.image" :src="post.image" alt="">
-                                        </div>
-                                    </template>
+                                    <div v-if="post.image && post.image.length > 0">
+                                        <template v-for="(iamimage, index) in post.image" :key="index">
+                                            <div>
+                                                <img v-if="iamimage" :src="iamimage">
+                                            </div>
+                                        </template>
+                                    </div>
                                 </div>
                                 <div class="actions-container">
 

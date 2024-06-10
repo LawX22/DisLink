@@ -3,28 +3,29 @@ include 'dbconnection.php';
 
 $user_id = $_POST['user_id'];
 $content = $_POST['content'];
-$image = $_FILES['image'];
+$images = $_FILES['image'];
 
 try {
-    $target_file = '';
+    $uploaded_files = [];
 
-    if (!empty($image['name'])) {
-        $filename = time() . '_' . basename($_FILES["image"]["name"]);
-        $target_file = './uploads/' . $filename;
-        move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+    if (!empty($images['name'][0])) {
+        for ($i = 0; $i < count($images['name']); $i++) {
+            $filename = time() . '_' . basename($images["name"][$i]);
+            $target_file = './uploads/' . $filename;
+            if (move_uploaded_file($images["tmp_name"][$i], $target_file)) {
+                $uploaded_files[] = $filename;
+            }
+        }
     }
 
+    $uploaded_json = json_encode($uploaded_files);
+    
     $query = "INSERT INTO post (user_id, content, image)
             VALUES (:user_id, :content, :image)";
     $statement = $pdo->prepare($query);
     $statement->bindParam(':user_id', $user_id);
     $statement->bindParam(':content', $content);
-
-    if (!empty($target_file)) {
-        $statement->bindParam(':image', $target_file);
-    } else {
-        $statement->bindValue(':image', "");
-    }
+    $statement->bindParam(':image', $uploaded_json);
 
     $res = $statement->execute();
 
