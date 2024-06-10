@@ -756,13 +756,31 @@ button {
     left: 27.4vh;
     transform: translate(-50%, -50%);
     background-color: #424549;
-    /* border: 1px solid #cccccc; */
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     width: 25%;
     height: 40vh;
     z-index: 9999;
+    overflow: auto;
 }
+
+.notificationpopup::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  .notificationpopup::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+  }
+  
+  .notificationpopup::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+  }
+  
+  .notificationpopup::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+  }
 
 .notificationpopup p {
     color: white;
@@ -776,7 +794,6 @@ button {
 .notifs {
     display: flex;
     margin-bottom: 15px;
-    /* border: 1px solid red; */
 }
 
 .noti-profile img{
