@@ -245,11 +245,13 @@ if (!isset($_SESSION['email'])) {
                                         </div>
                                     </div>
                                 </div>
-                                <template v-if="post.image && post.image.length > 0">
-                                    <div class="post-img">
-                                        <img v-if="post.image" :src="post.image" alt="" width="575" height="400">
-                                    </div>
-                                </template>
+                                <div class="image-container">
+                                    <template v-if="post.image && post.image.length > 0">
+                                        <div class="post-img">
+                                            <img v-if="post.image" :src="post.image" alt="">
+                                        </div>
+                                    </template>
+                                </div>
                                 <div class="actions-container">
 
 
