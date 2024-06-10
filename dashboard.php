@@ -228,13 +228,13 @@ if (!isset($_SESSION['email'])) {
                                     </div>
                                 </div>
 
-                                <template v-if="post.user_id == curuser">
-                                    <div class="btn-cta-post">
-                                        <i class="fas fa-edit" @click="EditContent(post.id)"></i>
-                                        <i class="fas fa-trash-alt" @click="DeletePost(post.id)"></i>
-                                    </div>
-                                </template>
-
+                                    <template v-if="post.user_id == curuser">
+                                            <div class="btn-cta-post">
+                                                <i class="fas fa-edit" @click="EditContent(post.id)"></i>
+                                                <i class="fas fa-trash-alt" @click="DeletePost(post.id)"></i>
+                                            </div>
+                                    </template>
+                                    
                                 <div class="caption">
                                     <label v-if="!post.mei">{{ post.content }}</label>
                                     <div v-else>
@@ -307,13 +307,15 @@ if (!isset($_SESSION['email'])) {
                                             <img src="<?php echo $_SESSION['profile_picture']; ?>" alt="Profile">
                                         <?php endif; ?>
                                     </div>
-                                    <form @submit.prevent="HandleBar" id="myFreeWill">
-                                        <input type="hidden" name="postid" :value="post.id">
-                                        <input type="text" name="mentmsg" placeholder="Write a comment...">
-                                        <div class="comment-send">
-                                            <button><i class="fas fa-paper-plane"></i></button>
-                                        </div>
-                                    </form>
+                                    <div class="comment-inputs">
+                                        <form @submit.prevent="HandleBar" id="myFreeWill">
+                                            <input type="hidden" name="postid" :value="post.id">
+                                            <input type="text" name="mentmsg" placeholder="Write a comment...">
+                                            <div class="comment-send">
+                                                <button><i class="fas fa-paper-plane"></i></button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
 
                             </div>

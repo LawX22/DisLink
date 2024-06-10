@@ -149,8 +149,10 @@ body {
     align-items: center;
     justify-content: flex-start;
     width: 47.7%;
-    height: 88.3vh;
+    height: 88vh;
+    margin-top: 4vh;
     overflow-y: auto;
+    position: relative;
     /* border: 1px solid red; */
 }
 
@@ -267,15 +269,16 @@ label {
     /* border: 1px solid red; */
 }
 
+.comment-inputs {
+    position: relative;
+    bottom: 42px;
+    height: 40px;
+}
+
 .comment input {
-    padding-left: 5px;
     height: 5vh;
     width: 70%;
     border-radius: 10px;
-    position: relative;
-    bottom: 6vh;
-    margin-top: 50px;
-    /* border: 1px solid red; */
 }
 
 .comment-profile img{
@@ -303,9 +306,9 @@ label {
 }
 
 .comment-send {
-    position: relative;
-    bottom: 10.5vh;
-    left: 70vh;
+    position: absolute;
+    right: 4vh;
+    top: 8px;
     color: white;
 }
 
@@ -434,15 +437,16 @@ label {
     margin-right: 10px; 
 }
 
-.btn-cta-post{
+.btn-cta-post{  
+    width: 100%;
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
     color: white;
-    width: 15vh;
+    /* border: 1px solid red; */
     position: relative;
-    left: 60vh;
-    bottom: 7.2vh;
+    bottom: 40px;
+    right: 20px;
 }
 
 .large-input {
