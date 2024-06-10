@@ -279,17 +279,20 @@ if (!isset($_SESSION['email'])) {
                                                 <div class="comment-text">
 
                                                     <template v-if="meth.user_id == curuser">
-                                                        <div class="comment-edit">
-                                                            <button @click="ChangeMyWill(meth.id)">edit</button>
-                                                            <button @click="StopLife(meth.id)">delete</button>
-                                                        </div>
+                                                    <div class="comment-edit">
+                                                        <i class="fas fa-edit icon" @click="ChangeMyWill(meth.id)"></i>
+                                                        <i class="fas fa-trash-alt icon" @click="StopLife(meth.id)"></i>
+                                                    </div>
+
                                                     </template>
 
-                                                    <p v-if="!meth.cmei">{{ meth.comment_text }}</p>
+                                                    <p class="text-display" v-if="!meth.cmei">{{ meth.comment_text }}</p>
                                                     <div v-else>
                                                         <input v-model="meth.cmel">
-                                                        <button @click="ChangeLife(meth)">Save</button>
-                                                        <button @click="CancelMyLife(meth)">Cancel</button>
+                                                        <div class="comment-confirm">
+                                                                <i class="fas fa-save icon" @click="ChangeLife(meth)"></i>
+                                                                <i class="fas fa-times icon" @click="CancelMyLife(meth)"></i>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
