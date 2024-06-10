@@ -281,13 +281,17 @@ label {
     border-radius: 10px;
 }
 
+.comment-profile {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 8px;
+    margin-left: 20px;
+}
+
 .comment-profile img{
     border-radius: 50%;
     height: 50px;
     width: 50px;
-    position: relative;
-    right: 33.5vh;
-    top: 1vh;
 }
 
 .comment_popup {
