@@ -399,6 +399,11 @@ label {
     margin-top: 3vh;
 }
 
+.username-comment {
+    position: absolute;
+    left: 1vh;
+}
+
 .text-display {
     /* border: 1px solid red; */
     display: flex;
@@ -807,14 +812,6 @@ button {
     margin-top: 15px;
     margin-left: 10px;
 }
-
-
-
-
-
-
-
-
 
 .profile_container img{
     height: 100%;

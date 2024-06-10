@@ -277,7 +277,11 @@ if (!isset($_SESSION['email'])) {
                                             <div v-for="meth in comments" :key="meth.id" class="comment-display">
                                                 <img :src="meth.profile_picture" alt="Profile">
                                                 <div class="comment-text">
-
+                                                
+                                                <div class="username-comment">
+                                                    <p>{{ post.firstname }} {{ post.lastname }}</p>
+                                                </div>
+                                                
                                                     <template v-if="meth.user_id == curuser">
                                                     <div class="comment-edit">
                                                         <i class="fas fa-edit icon" @click="ChangeMyWill(meth.id)"></i>
