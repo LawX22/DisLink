@@ -248,8 +248,8 @@ if (!isset($_SESSION['email'])) {
                                 <div class="image-container">
                                     <div v-if="post.image && post.image.length > 0">
                                         <template v-for="(iamimage, index) in post.image" :key="index">
-                                            <div>
-                                                <img v-if="iamimage" :src="iamimage">
+                                            <div class="image-post">
+                                                <img v-if="iamimage" :src="iamimage" >
                                             </div>
                                         </template>
                                     </div>

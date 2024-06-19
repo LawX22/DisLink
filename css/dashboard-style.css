@@ -193,6 +193,12 @@ label {
     border: 1px solid red;
 } */
 
+.image-post img{
+    height: 50vh;
+    width: 100%;
+    /* border: 1px solid red; */
+}
+
 .post-img img{
     width: 100%;
 }
