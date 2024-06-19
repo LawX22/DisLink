@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2024 at 04:39 PM
+-- Generation Time: Jun 20, 2024 at 12:36 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -54,7 +54,31 @@ INSERT INTO `comment` (`id`, `post_id`, `user_id`, `comment_text`, `date_created
 (25, 44, 80, 'vfvfg', '2024-05-14 08:06:54'),
 (26, 39, 80, 'fsdf', '2024-05-14 08:08:30'),
 (29, 48, 80, 'can i join to your server earthlings', '2024-06-03 02:24:30'),
-(31, 47, 55, 'sgvbsfdvkfsdbvf', '2024-06-05 13:57:00');
+(31, 47, 55, 'sgvbsfdvkfsdbvf', '2024-06-05 13:57:00'),
+(33, 39, 55, 'vndfvfd', '2024-06-09 12:09:42'),
+(35, 39, 55, 'vndfvfd', '2024-06-09 12:09:51'),
+(36, 39, 55, 'vndfvfd', '2024-06-09 12:09:51'),
+(38, 61, 83, 'deym bro', '2024-06-09 12:11:22'),
+(39, 60, 55, 'fsdf', '2024-06-10 02:29:31'),
+(41, 66, 55, 'lmao HAHAHA', '2024-06-10 02:43:29'),
+(43, 66, 55, 'sa', '2024-06-10 11:08:43'),
+(45, 68, 55, 'dsadsasa', '2024-06-10 11:27:20'),
+(46, 68, 55, 'sa', '2024-06-10 11:27:28'),
+(48, 68, 55, 'adsads', '2024-06-10 11:45:36'),
+(49, 68, 55, 'sad', '2024-06-10 11:48:10'),
+(50, 68, 55, 'sad', '2024-06-10 11:48:12'),
+(51, 68, 55, 'sad', '2024-06-10 11:48:12'),
+(52, 68, 55, 'saddasd', '2024-06-10 11:54:26'),
+(53, 68, 55, 'sadsfgfdgfg', '2024-06-10 12:09:28'),
+(54, 68, 80, 'dsad', '2024-06-10 12:10:54'),
+(55, 48, 83, 'Nice Base bro', '2024-06-10 12:22:36'),
+(56, 66, 64, 'Putang ina mo pre', '2024-06-10 12:23:08'),
+(57, 48, 64, 'wala mag pa apil uy', '2024-06-10 12:23:54'),
+(58, 48, 74, 'Lezz go', '2024-06-10 12:25:28'),
+(59, 68, 55, 'sad', '2024-06-10 12:33:59'),
+(60, 68, 80, 'dad', '2024-06-10 12:50:31'),
+(61, 73, 80, 'sheesh ', '2024-06-19 02:31:08'),
+(62, 73, 66, 'nigga', '2024-06-19 02:32:09');
 
 -- --------------------------------------------------------
 
@@ -121,7 +145,25 @@ INSERT INTO `follow` (`id`, `my_id`, `friend_id`, `created_at`) VALUES
 (46, 75, 61, '2024-05-10 22:29:15'),
 (47, 83, 75, '2024-05-14 16:05:54'),
 (48, 60, 80, '2024-06-03 09:31:08'),
-(49, 55, 81, '2024-06-05 22:32:48');
+(49, 55, 81, '2024-06-05 22:32:48'),
+(50, 83, 55, '2024-06-09 20:11:02'),
+(51, 64, 55, '2024-06-10 10:41:56'),
+(52, 74, 55, '2024-06-10 20:24:11'),
+(53, 66, 55, '2024-06-19 10:31:57');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `image`
+--
+
+CREATE TABLE `image` (
+  `image_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `filename` varchar(255) NOT NULL,
+  `image_uid` int(11) NOT NULL,
+  `upload_timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -133,18 +175,44 @@ CREATE TABLE `likes` (
   `id` int(11) NOT NULL,
   `post_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `status` varchar(100) NOT NULL
+  `status` varchar(255) NOT NULL,
+  `date_like` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `likes`
 --
 
-INSERT INTO `likes` (`id`, `post_id`, `user_id`, `status`) VALUES
-(88, 3, 0, 'unread'),
-(89, 2, 0, 'unread'),
-(93, 1, 0, 'unread'),
-(106, 123, 0, 'unread');
+INSERT INTO `likes` (`id`, `post_id`, `user_id`, `status`, `date_like`) VALUES
+(3, 61, 80, 'read', '0000-00-00 00:00:00'),
+(6, 55, 80, 'read', '0000-00-00 00:00:00'),
+(7, 49, 80, 'read', '0000-00-00 00:00:00'),
+(8, 39, 55, 'read', '0000-00-00 00:00:00'),
+(9, 60, 80, 'read', '0000-00-00 00:00:00'),
+(10, 49, 83, 'read', '0000-00-00 00:00:00'),
+(11, 55, 83, 'read', '0000-00-00 00:00:00'),
+(12, 60, 83, 'read', '0000-00-00 00:00:00'),
+(13, 61, 83, 'read', '0000-00-00 00:00:00'),
+(14, 60, 55, 'unread', '0000-00-00 00:00:00'),
+(15, 15, 55, 'unread', '0000-00-00 00:00:00'),
+(16, 65, 64, 'read', '0000-00-00 00:00:00'),
+(17, 14, 64, 'read', '0000-00-00 00:00:00'),
+(18, 16, 64, 'read', '0000-00-00 00:00:00'),
+(19, 66, 55, 'read', '0000-00-00 00:00:00'),
+(20, 65, 55, 'unread', '0000-00-00 00:00:00'),
+(21, 68, 55, 'unread', '0000-00-00 00:00:00'),
+(22, 68, 80, 'read', '0000-00-00 00:00:00'),
+(23, 68, 83, 'read', '0000-00-00 00:00:00'),
+(24, 67, 83, 'read', '0000-00-00 00:00:00'),
+(25, 48, 83, 'read', '0000-00-00 00:00:00'),
+(26, 68, 64, 'read', '0000-00-00 00:00:00'),
+(27, 66, 64, 'unread', '0000-00-00 00:00:00'),
+(28, 48, 64, 'read', '0000-00-00 00:00:00'),
+(29, 48, 74, 'read', '0000-00-00 00:00:00'),
+(30, 72, 55, 'unread', '0000-00-00 00:00:00'),
+(31, 73, 80, 'read', '0000-00-00 00:00:00'),
+(32, 73, 66, 'read', '0000-00-00 00:00:00'),
+(33, 73, 55, 'unread', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -194,7 +262,13 @@ INSERT INTO `post` (`id`, `user_id`, `content`, `image`, `created_at`) VALUES
 (48, 55, 'Building an Emprirefdsrffe', './uploads/1717380706_Screenshot (46).png', '2024-06-05 13:55:08'),
 (49, 55, 'Golden zombiewd', './uploads/1717595801_Screenshot (62).png', '2024-06-05 14:23:48'),
 (55, 55, 'dsadadsd', '', '2024-06-06 02:30:50'),
-(56, 55, 'jhgjhj', '', '2024-06-06 03:31:03');
+(60, 55, 'fddsada', '', '2024-06-10 02:29:21'),
+(65, 55, 'dasds', './uploads/1717987148_441464546_484798037402129_2562103017533212456_n.jpg', '2024-06-10 10:45:49'),
+(66, 64, 'My Younger Days #feelingsad', './uploads/1717987297_441503640_768826425408866_8652916441679102014_n.jpg', '2024-06-10 02:41:37'),
+(67, 55, 'Check my build', './uploads/1718016806_Screenshot (44).png', '2024-06-10 12:19:26'),
+(68, 55, 'Coding', '', '2024-06-10 12:20:19'),
+(71, 55, 'jvdsjvfjds', '[\"1718721759_Screenshot (1).png\"]', '2024-06-19 02:26:23'),
+(73, 55, 'bdbskbksbg', '[\"1718764009_Screenshot (2).png\",\"1718764009_Screenshot (3).png\",\"1718764009_Screenshot (4).png\"]', '2024-06-19 02:27:12');
 
 -- --------------------------------------------------------
 
@@ -252,6 +326,12 @@ ALTER TABLE `follow`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `image`
+--
+ALTER TABLE `image`
+  ADD PRIMARY KEY (`image_id`);
+
+--
 -- Indexes for table `likes`
 --
 ALTER TABLE `likes`
@@ -283,19 +363,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `follow`
 --
 ALTER TABLE `follow`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+
+--
+-- AUTO_INCREMENT for table `image`
+--
+ALTER TABLE `image`
+  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `notification`
@@ -307,7 +393,7 @@ ALTER TABLE `notification`
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `users`
